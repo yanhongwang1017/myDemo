@@ -1,0 +1,74 @@
+{include file=$header}
+    <link rel="stylesheet" href="{CSS_URL}/lists.css">
+    <section class="ibody">
+        <main>
+            <div class="left">
+                <div class="left_top">
+                    <a class="avatar-piv" href=""><img src="{$data1['cimage']}" alt=""></a>
+                    <a class="btn follow"><i class="iconfont icon-jia"></i><span>关注</span></a>
+                    <div class="btn contribute-button">投稿</div>
+                    <div class="list_title"><a class="name" href="">{$data1["cname"]}</a></div>
+                    <div class="info">收录了130087篇文章 · 1332730人关注</div>
+                </div>
+                <ul class="trigger-menu">
+                    <li><a href="javascript:void (0);"><i class="iconfont icon-pinglunzhuanhuan"></i>最新评论</a></li>
+                    <li><a href="javascript:void (0);"><i class="iconfont icon-wenzhang"></i>最新目录</a></li>
+                    <li><a href="javascript:void (0);"><i class="iconfont icon-remen"></i>热门</a></li>
+                </ul>
+                <div id="list-container">
+                    <ul class="note-list">
+                        {foreach $data2 as $value}
+                        <li>
+                            <a class="wrap-img" href="index.php?m=index&f=index&a=content&cid={$value['cid']}" target="_blank"><img src="{$value['thumb']}" alt=""></a>
+                            <div class="content">
+                                <div class="author">
+                                    <a class="avatar" target="_blank" href=""><img src="{$value['photo']}" alt=""></a>
+                                    <div class="name">
+                                        <a class="blue-link" target="_blank" href="javascript:void (0);">{$value["nicheng"]}</a>
+                                        <span>{$value["condate"]}</span>
+                                    </div>
+                                </div>
+                                <a class="title" target="_blank" href="index.php?m=index&f=index&a=content&cid={$value['cid']}">{$value["ctitle"]}</a>
+                                <p class="abstract">{$value["jianjie"]}</p>
+                                <div class="meta">
+                                    <a target="_blank" href=""><i class="glyphicon glyphicon-eye-open"></i>{$value["hnum"]}</a>
+                                    <a target="_blank" href=""><i class="glyphicon glyphicon-comment"></i>{$value['messageNum']}</a>
+                                </div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="user-dynamic">
+                    <li class="badge-icon">
+                        <a target="_blank" href=""><img width="20" heigth="20" src="{IMG_URL}/0a216c3.png" alt="">已认证的机构</a>
+                    </li>
+                    <li class="badge-icon">
+                        <a target="_blank" href=""><img width="20" heigth="20" src="{IMG_URL}/1ce.png" alt="">简书观察优秀作者</a>
+                    </li>
+                </ul>
+                <div class="messa">
+                    <p class="messa_title">专题信息：</p>
+                    <div class="description"><p>{$data1["cinfo"]}</p></div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <script>
+        $(function () {
+            let flag = true;
+           $(".follow").click(function () {
+               if(flag){
+                   $(this).html("已关注");
+                   flag = false;
+               }else{
+                   $(this).html("<i class='iconfont icon-jia'></i><span>关注</span>");
+                   flag = true;
+               }
+           })
+        })
+    </script>
+</body>
+</html>

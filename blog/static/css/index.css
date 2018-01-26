@@ -1,0 +1,254 @@
+.banner{
+    width: 100%;
+    height: 272px;
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.left_banner{
+    width: 66.66666666%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.left_banner li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    opacity: 0;
+    z-index: 0;
+    transition: all ease 0.8s;
+}
+.left_banner li:first-child{
+    opacity:1;
+    z-index: 1;
+}
+.left_banner li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.left_banner li a img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.right_banner{
+    width: 33.33333333%;height: 100%;
+    position: absolute;
+    top:0;
+    right:0;
+}
+.right_banner li{
+    width: 100%;
+}
+.right_banner li a{
+    display: block;
+    width: 100%;
+}
+.right_banner li a img{
+    width: 100%;
+}
+.left_btn,.right_btn{
+    background: rgba(0,0,0,.4);
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    display: none;
+    z-index: 2;
+}
+.left_btn{
+    left: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.right_btn{
+    right: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.banner:hover .left_btn{
+    display: block;
+}
+.banner:hover .right_btn{
+    display: block;
+}
+.titles{
+    width: 100%;
+    height: 104px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom:0;
+}
+.titles li{
+    float: left;
+}
+.titles li a{
+    display: inline-block;
+    margin: 0 18px 18px 0;
+    min-height: 32px;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    vertical-align: top;
+    overflow: hidden;
+    line-height: 31px;
+}
+.titles li a img{
+    float: left;
+    width: 32px;
+}
+.titles li a .name{
+    display: inline-block;
+    padding: 0 11px 0 6px;
+    font-size: 14px;
+    color: #000;
+    float: left;
+}
+.titles li:last-child a{
+    border:none;
+    background: transparent;
+    color: #000;
+    line-height: 34px;
+}
+.content{
+    width: 100%;
+    height: auto;
+}
+.content li{
+    width: 100%;
+    min-height: 200px;
+    margin: 0 0 17px;
+    padding: 0 2px 17px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+.content li a{
+    display: block;
+}
+.left_content{
+    width: 463px;
+    height:auto;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.right_pic{
+    width: 150px;
+    height: 120px;
+    position: absolute;
+    top:0;  bottom:0;
+    margin-bottom: auto;  margin-top: auto;
+    right: 0;
+}
+.right_pic img{
+    width: 100%;
+    border-radius: 4px;
+}
+.author{
+    width: 100%;
+    height: 32px;
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 32px;
+}
+.author_photo{
+    float: left;
+    width: 32px;height: 32px;
+    margin: 0 5px 0 0;
+}
+.author_photo img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+.author_name{
+    float: left;
+    color: #333;
+    font-size: 13px;
+    margin-left: 6px;
+}
+.time{
+    float: left;
+    padding-left: 3px;
+    color: #969696;
+    margin-left: 6px;
+}
+.content_title{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
+}
+.content_title a:hover{
+    color: #333;
+    text-decoration: underline;
+}
+.contets{
+    width: 100%;
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: #333;
+    line-height: 22px;
+}
+.content_bottom{
+    width: 100%;height: 20px;
+}
+.content_bottom dt{
+    float: left;
+    margin-right: 18px;
+}
+.fenlei a{
+    display: inline-block;
+    padding: 3px 6px;
+    margin-top: -1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+    vertical-align: middle;
+    color: #ea6f5a!important;
+    border: 1px solid rgba(236,97,73,.7);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.content_bottom dt a{
+    display: inline-block;
+    color:#B4B4B4;
+    font-size: 14px;
+    line-height: 10px;
+}
+.content_bottom dt a span{
+    display: inline-block;
+    margin-left: 4px;
+}
+.borad{
+    width: 100%;
+    height:auto;
+}
+.borad li{
+    width: 100%;height: 50px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+}
+.borad li a{
+    width: 100%;display: block;
+}
+.borad li a img{
+    width: 100%;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加内容</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/upload.js"></script>
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{STATIC_URL}/utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{STATIC_URL}/utf8-php/ueditor.all.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="{STATIC_URL}/utf8-php/lang/zh-cn/zh-cn.js"></script>
+</head>
+<style>
+    .layui-fluid{ margin-top: 20px;}
+    .layui-fluid h1{ font-size: 26px;text-align: center;margin-bottom: 20px;}
+    .layui-input{ width:60%;}
+    .layui-form-label{ width: 120px;}
+    .layui-input-block{ margin-left: 150px;}
+    .content_box{ width: 80%;height: 300px;}
+    #container{ width: 100%;height: 220px;overflow-y: scroll;}
+    .thumb{ margin-left: 70px;}
+    .img_view{ float: left;width: 120px;border:1px solid #393939;margin-top: 10px;position: relative;}
+    .parent{  float: left;margin-left: 20px;width: 80%;}
+    .img_view img{ width: 100%;float: left;}
+    .update_img{ width: 100%;}
+    .del_img{ position: absolute;top: 5px;right: 12px;width: 20px;height: 20px;text-align: center;line-height: 20px;
+        border:none;background: transparent;}
+    .layui-textarea{   resize: none;width: 93%;}
+</style>
+<body>
+<div class="layui-fluid">
+    <h1>添加内容</h1>
+    <form class="layui-form" method="post">
+        <input type="hidden" name="cid" value="{$cid}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">内容标题：</label>
+            <div class="layui-input-block">
+                <input type="text" value="{$data1['ctitle']}" name="ctitle" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">内容简介：</label>
+            <div class="layui-input-block">
+                <textarea name="jianjie" class="layui-textarea">{$data1['jianjie']}</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">内容详情：</label>
+            <div class="layui-input-block content_box">
+                <script id="container" name="con" type="text/plain">{$data1['con']}</script>
+            </div>
+        </div>
+        <div class="layui-form-item thumb">
+            <label for="exampleInputFile" style="vertical-align: top;">修改图片：</label>
+            <div style="display: inline-block;width: 86%;height: 150px;">
+                <div class="img_view">
+                    <img src="{$data1['thumb']}" alt="">
+                    <div cid="{$data1['cid']}" class="layui-btn layui-btn-primary layui-btn-small del_img">
+                        <i class="layui-icon">&#xe640;</i>
+                    </div>
+                </div>
+                <div class="parent">
+                    <input type="file" id="exampleInputFile" multiple style="vertical-align: top;margin-left: 20px;">
+                    <div class="update_img"></div>
+                </div>
+            </div>
+            <input type="hidden" name="thumb" value="{$data1['thumb']}">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">价格：</label>
+            <div class="layui-input-block">
+                <input type="text" name="price" value="{$data1['price']}" required  lay-verify="required" placeholder="请输入价格" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">其它分类：</label>
+            <div class="layui-input-block">
+                {foreach $data as $value}
+                {if strpos($data1["pid"],$value["pid"]) !== false}
+                <input type="checkbox" name="pid[]" title="{$value['pname']}" value="{$value['pid']}" checked>
+                {else}
+                <input type="checkbox" name="pid[]" title="{$value['pname']}" value="{$value['pid']}">
+                {/if}
+                {/foreach}
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="submit" class="layui-btn" formaction="index.php?m=index&f=write&a=editContent&state=2" value="立即发布">
+                <input type="submit" class="layui-btn layui-btn-normal" formaction="index.php?m=index&f=write&a=editContent&state=1" value="暂时保存">
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    window.onload = function () {
+        let parent = document.querySelector('.update_img');
+        let imgval = document.querySelector("input[name='thumb']");
+        let selectBtn = document.querySelector("input[type=file]");
+        let obj = new upload();
+        obj.upBtnStyle = "display: inline-block;height: 38px;line-height: 38px;padding: 0 18px;\n" +
+            "    background-color: #FF5722;color: #fff;white-space: nowrap;text-align: center;\n" +
+            "    font-size: 14px;border: none;border-radius: 2px;cursor: pointer;margin-left:20px;";
+        obj.multiple = false;
+        obj.viewStyle = "width:100%;margin-left:20px;margin-top:10px;";
+        obj.listStyle = "height:70px;width:70px;float:left;border:1px solid #ccc;";
+        obj.createView({
+            parent:parent,selectBtn:selectBtn
+        })
+        obj.up("index.php?m=admin&f=index&a=upload",function (e) {
+            let str = e.join(";");
+            imgval.value = str;
+        });
+        layui.use('form', function(){
+            var form = layui.form;
+        });
+        var ue = UE.getEditor('container',{
+            toolbars: [
+                ['fullscreen', 'undo', 'redo', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc','simpleupload','insertimage']
+            ]
+        });
+        //删除图片
+        layui.use('layer',function () {
+            var layer = layui.layer;
+            $(".del_img").on("click",function () {
+                let that = $(this);
+                let cid = that.attr("cid");
+                layer.confirm('确定删除该缩略图吗？', {
+                    btn: ['确定','取消']
+                }, function(){
+                    $.ajax({
+                        url:"index.php?m=index&f=write&a=delThumb&cid="+cid,
+                        success:function (e) {
+                            if (e == "ok"){
+                                that.parent().remove();
+                                $("input[name=thumb]").val("");
+                                layer.msg('删除成功');
+                            }
+                        }
+                    })
+                });
+            })
+        })
+    }
+</script>
+</body>
+</html>

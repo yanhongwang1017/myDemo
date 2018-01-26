@@ -1,0 +1,94 @@
+{include file=$header}
+    <link rel="stylesheet" href="{CSS_URL}/car.css">
+
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <section class="ibody">
+        <main>
+            <table class="table">
+                <tr>
+                    <th><input type="checkbox" class="check">全选</th>
+                    <th>商品名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="hang">
+                    <td><input type="checkbox" class="danxuan"></td>
+                    <td>
+                        <div class="shangpin_img"><img src="{IMG_URL}/1201.jpg" alt=""></div>
+                        <span class="shangpin_name">金拱门爱情故事</span>
+                    </td>
+                    <td class="p_price"><span>￥</span><span class="price">20</span></td>
+                    <td class="p_number"><input type="number" value="1" class="number" min="0" max="5"></td>
+                    <td><span>￥</span><span class="amount_price"></span></td>
+                    <td><i class="glyphicon glyphicon-remove"></i></td>
+                </tr>
+                <tr class="hang">
+                    <td><input type="checkbox" class="danxuan"></td>
+                    <td>
+                        <div class="shangpin_img"><img src="{IMG_URL}/1201.jpg" alt=""></div>
+                        <span class="shangpin_name">金拱门爱情故事</span>
+                    </td>
+                    <td class="p_price"><span>￥</span><span class="price">30</span></td>
+                    <td class="p_number"><input type="number" value="1" class="number" min="0" max="5"></td>
+                    <td><span>￥</span><span class="amount_price"></span></td>
+                    <td><i class="glyphicon glyphicon-remove"></i></td>
+                </tr>
+            </table>
+            <div class="amount">
+                <div class="section-left">
+                    <a href="" class="back-shopping">继续浏览</a>
+                    <span class="cart-total">共<i id="sp_num">1</i>件商品，已选择<i id="sel_num">1</i>件</span>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-primary jiesuan" id="J_goCheckout">去结算</a>
+                <span class="total-price">合计:<em id="cartTotalPrice"></em>元</span>
+            </div>
+        </main>
+    </section>
+    <script>
+        $(document).ready(function () {
+            let length = $(".hang").length;
+            let num = $(".number");
+            let danjia = $(".price");
+            let amount_price = $(".amount_price");
+            let jiesuan = $("#cartTotalPrice");
+            let jiesuan_money = 0;
+            for (let i = 0; i < length; i++){
+                amount_price.eq(i).text(danjia.eq(i).text()*num.eq(i).val());
+                num.eq(i).change(function () {
+                    amount_price.eq(i).text(danjia.eq(i).text()*num.eq(i).val());
+                })
+            }
+
+            $(".check").on("click",function () {
+                if($(this).prop("checked")){
+                    $(".danxuan").prop("checked",true);
+                    for (let j = 0; j < length; j++){
+                        jiesuan_money += parseInt(amount_price.eq(j).html());
+                    }
+                }else {
+                    $(".danxuan").prop('checked',false);
+                    jiesuan_money = 0;
+                }
+                jiesuan.html(jiesuan_money);
+            })
+
+
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                $(".glyphicon-remove").on('click', function(){
+                    let that = $(this);
+                    layer.confirm('确定删除吗？', {
+                        btn: ['确定','取消']
+                    },function () {
+                        that.parent().parent().remove();
+                        layer.msg('删除成功');
+                    })
+                });
+            });
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+html,body{
+    margin: 0;padding: 0;
+}
+.container{
+	width: 1000px;
+	height: auto;
+	margin: 100px auto 0;
+	text-align: center;
+}
+h1{
+	font-weight: 500;
+	font-size: 50px;
+	color: #333;
+}
+h2{
+	font-weight: 400;
+	font-size: 30px;
+	color: #616161;
+	letter-spacing: 8px;
+}
+h3{
+	font-weight: 400;
+	font-size:20px;
+	color: #d70000;
+	letter-spacing: 6px;
+}

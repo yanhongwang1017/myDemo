@@ -1,0 +1,220 @@
+.navi li .iconfont{
+    color: #333;
+}
+.navi li:first-child a{
+    color: #333;
+}
+.left_top{
+    padding-top: 30px;
+    margin-bottom: 35px;
+}
+.avatar-piv{
+    float: left;
+    width: 80px;
+    height: 80px;
+    display: block;
+}
+.avatar-piv img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+.follow{
+    padding: 8px 0;
+    width: 100px;
+    float: right;
+    margin: 23px 0 23px 16px;
+    font-size: 15px;
+    border-color: #42c02e;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    color: #fff;
+    background-color: #42c02e;
+}
+.contribute-button{
+    padding: 8px 0;
+    width: 90px;
+    float: right;
+    margin: 23px 0 23px 16px;
+    font-size: 15px;
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e!important;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none;
+}
+.list_title{
+    padding: 10px 0 0 100px
+}
+.list_title .name{
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.info{
+    margin-top: 10px;
+    padding-left: 100px;
+    font-size: 14px;
+    color: #969696;
+}
+.trigger-menu{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.trigger-menu li{
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    margin-bottom: -1px;
+    line-height: 20px;
+}
+.trigger-menu li a{
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #969696;
+    line-height: 25px;
+}
+.trigger-menu li a i{
+    margin-right: 5px;
+    font-size: 17px;
+}
+.note-list li{
+    min-height: 140px;
+    position: relative;
+    width: 100%;
+    margin: 0 0 17px;
+    padding: 0 2px 17px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+    line-height: 20px;
+}
+.wrap-img{
+    position: absolute;
+    top: 50%;
+    margin-top: -68px;
+    right: 0;
+    width: 150px;
+    height: 120px;
+}
+.wrap-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 1px solid #f0f0f0;
+}
+.content{
+    padding-right: 160px;
+}
+.author{
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+.avatar{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    width: 32px;
+    height: 32px;
+}
+.avatar img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+.author .name{
+    display: inline-block;
+    vertical-align: middle;
+}
+.author .name span{
+    display: inline-block;
+    padding-left: 3px;
+    color: #969696;
+}
+.content .title{
+    color: #969696;
+    margin: -7px 0 4px;
+    display: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #333;
+}
+.abstract{
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+}
+.meta{
+    padding-right: 0!important;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.meta a{
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+.meta a:hover{
+    color: #333;
+}
+.meta a i{
+    margin-right: 4px;
+}
+.user-dynamic{
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+    padding-top: 30px;
+}
+.badge-icon{
+    margin-bottom: 10px;
+    line-height:20px;
+}
+.badge-icon a{
+    display: inline-block;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+}
+.badge-icon a img{
+    margin-right: 3px;
+    float: left;
+}
+.messa{
+    width: 100%;
+    height: auto;
+}
+.messa_title{
+    float: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #969696;
+}
+.description{
+    padding: 0 0 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+    word-wrap: break-word!important;
+}
+.description p{
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+.title:hover{
+    text-decoration: underline;
+}
+.follow:hover{
+    color: #fff;
+    opacity: 0.8;
+}

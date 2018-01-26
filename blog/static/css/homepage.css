@@ -1,0 +1,171 @@
+.navi li .iconfont{
+    color: #333;
+}
+.navi li:first-child a{
+    color: #333;
+}
+.user{
+    width: 100%;height: auto;
+    padding-top: 30px;
+    margin-bottom: 70px;
+}
+.user_photo{
+    display: block;
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+.user_photo img{
+    width: 100%;
+    border-radius: 50%;
+}
+.titlfe{
+    padding: 5px 0 0 100px;
+}
+.titlfe a{
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    vertical-align: middle;
+    color: #333;
+}
+.info{
+    margin-top: 5px;
+    padding-left: 100px;
+    font-size: 14px;
+}
+.info li{
+    line-height: 20px;
+    float: left;
+    padding-right: 10px;
+    margin-left: 8px;
+    border-right: 1px solid #f0f0f0;
+}
+.info li:last-child{
+    border:none;
+}
+.info li a{
+    color: #969696;
+}
+.info li a p{
+    margin-bottom: -3px;
+    font-size: 15px;
+    color: #333;
+    margin: 0 0 1px;
+}
+.info li a .iconfont{
+    margin-left: 2px;
+    font-size: 10px;
+}
+.menu{
+    width: 625px;
+    height: 46px;
+    border-bottom:1px solid #f0f0f0;
+    margin-bottom: 0;
+}
+.menu li{
+    float: left;
+    padding: 6px 30px;
+    font-size: 18px;
+    color: #969696;
+    line-height: 25px;
+    cursor: pointer;
+}
+.menu li:nth-child(1){
+    border-bottom:2px solid #646464;
+}
+.menu li:hover{
+    border-bottom:2px solid #646464;
+}
+.menu li .iconfont{
+    font-size: 18px;
+    float: left;margin-right: 10px;
+}
+.menu li p{
+    float: left;
+    font-weight:600;
+}
+.like{
+    width: 100%;height: auto;
+    margin-top: 30px;padding-top: 20px;
+    border-top:1px solid #f0f0f0;
+    border-bottom:1px solid #f0f0f0;
+}
+.like li{
+    margin-bottom: 10px;
+    width: 100%;
+    height:30px;
+    line-height: 20px;
+}
+.like li a{
+    display: block;
+}
+.like li a .iconfont{
+    font-size: 26px;
+    float: left;
+    margin-right: 10px;
+    color: #333;
+}
+.like li a span{
+    font-size: 14px;
+    color: #333;
+}
+.like li a .icon-xihuan{
+    font-size: 20px;
+}
+.content_wrap{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    position: relative;
+}
+.content_wrap li{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    display: none;
+}
+.content_wrap li:first-child{
+    display: block;
+}
+.guanzhu dl{
+    width: 100%;
+    height: auto;
+}
+.guanzhu dl dt{
+    width: 100%;
+    height: 80px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.guanzhu_img{
+    width: 52px;
+    height: 52px;
+    float: left;
+    margin-left: 10px;
+}
+.guanzhu_img img{
+    width: 100%;height: 100%;
+    border-radius: 10%;
+    border:1px solid #ddd;
+}
+.guanzhu_info{
+    float: left;
+    margin-left: 30px;
+}
+.guanzhu_info{
+    font-weight:600;
+}
+.guanzhu_btn{
+    float: right;
+    margin-top: 8px;
+    padding: 8px 0;
+    width: 100px;
+    font-size: 15px;
+    border: 1px solid hsla(0,0%,59%,.6);
+    background: none;
+    border-radius: 40px;
+    outline:none;
+}

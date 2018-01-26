@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加分类</title>
+    <link rel="stylesheet" type="text/css" href="{CSS_URL}/easyui.css">
+    <link rel="stylesheet" type="text/css" href="{CSS_URL}/icon.css">
+    <script type="text/javascript" src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{JS_URL}/jquery.easyui.min.js"></script>
+    <script src="{JS_URL}/jquery.validate.min.js"></script>
+    <script src="{JS_URL}/upload.js"></script>
+</head>
+<style>
+    .easyui-fluid{  width: 400px;margin: 20px auto 0;}
+</style>
+<script>
+
+</script>
+<body>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="添加分类" style="width:100%;max-width:400px;padding:30px 60px;">
+        <form id="ff" method="post">
+            <div style="margin-bottom:20px">
+                <input name="pid" class="easyui-combotree" data-options="url:'index.php?m=admin&f=category&a=showCategory',method:'post',label:'添加分类:',labelPosition:'top'" style="width:100%">
+                <input type="hidden" class="textbox-value" name="pid" value="0">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="cname" style="width:100%" data-options="label:'分类名称:',required:true">
+            </div>
+            <div class="thumb" style="margin-bottom:20px">
+                <div style="margin-bottom: 20px">上传图片:</div>
+                <input type="file">
+                <input type="hidden" name="thumb" class="textbox-value">
+            </div>
+            <div style="margin-bottom:20px">
+                <input class="easyui-textbox" name="cinfo" style="width:100%;height:60px" data-options="label:'分类描述:',multiline:true">
+            </div>
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">递交</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">重置</a>
+        </div>
+    </div>
+    <script>
+        function submitForm(){
+            $("#ff").attr("action","index.php?m=admin&f=category&a=addCategoryCon");
+            if ($("#ff").validate()){
+                $('#ff').submit();
+            }else {
+                return false;
+            }
+        }
+        function clearForm(){
+            $('#ff').form('clear');
+        }
+        window.onload = function () {
+            let parent = document.querySelector('.thumb');
+            let imgval = document.querySelector("input[name='thumb']");
+            let selectBtn = document.querySelector("input[type='file");
+            let obj = new upload();
+            obj.upBtnStyle = "display: inline-block;height: 38px;line-height: 38px;padding: 0 18px;\n" +
+                "    background-color: #FF5722;color: #fff;white-space: nowrap;text-align: center;\n" +
+                "    font-size: 14px;border: none;border-radius: 2px;cursor: pointer;";
+            obj.multiple = false;
+            obj.viewStyle = "width:100%;margin-top:10px;";
+            obj.createView({
+                parent:parent,selectBtn:selectBtn
+            })
+            obj.up("index.php?m=admin&f=index&a=upload",function (e) {
+                let str = e.join(";");
+                imgval.value = str;
+            });
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查看用户角色信息</title>
+    <link href="{STATIC_URL}/layui/css/layui.css" rel="stylesheet">
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+</head>
+<style>
+    .layui-container{   margin-top: 20px;   }
+    .layui-container h1{ text-align: center;font-weight: 500;font-size: 26px;margin-bottom: 16px; }
+    .layui-table th,table td{  text-align: center;  }
+    .layui-table th{ font-weight: bolder; }
+</style>
+<body>
+    <div class="layui-container">
+        <h1>查看用户角色信息</h1>
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>角色名称</th>
+                <th>发布文章的数量</th>
+                <th>查看文章的权限</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $data as $value}
+            <tr>
+                <td>{$value["rid"]}</td>
+                <td>{$value["rname"]}</td>
+                <td>{$value["connum"]}</td>
+                <td>
+                    {if $value["conlevel"] == 1}
+                        普通文章
+                    {elseif $value["conlevel"] == 2}
+                        精华文章
+                    {else}
+                        极品文章
+                    {/if}
+                </td>
+                <td>
+                    <a href="index.php?m=admin&f=user&a=editUserRolePage&rid={$value['rid']}" class="layui-btn layui-btn-normal">编辑</a>
+                    <button attr="{$value['rid']}" class="layui-btn layui-btn-danger">删除</button>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(function () {
+            layui.use('layer',function () {
+                var layer = layui.layer;
+                $(".layui-btn-danger").on("click",function () {
+                    let that = $(this);
+                    let rid = that.attr("attr");
+                    layer.confirm('确定删除这个管理员角色吗？', {
+                        btn: ['确定','取消']
+                    }, function(){
+                        $.ajax({
+                            url:"index.php?m=admin&f=user&a=delUserRole&rid="+rid,
+                            success:function (e) {
+                                if (e == "ok"){
+                                    that.parent().parent().remove();
+                                    layer.msg('删除成功');
+                                }else if(e == "no"){
+                                    layer.msg('您没有该权限');
+                                }
+                            }
+                        })
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

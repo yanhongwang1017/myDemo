@@ -1,0 +1,30 @@
+<div class="duzhe">
+    {if $photo == null}
+    <a href="javascript:void (0);"class="avact"><img src="{IMG_URL}/avtar.png" alt=""></a>
+    {else}
+    <a href="javascript:void (0);"class="avact"><img src="{$photo}" alt=""></a>
+    {/if}
+    <div class="infos">
+        <a href="javascript:void (0);" class="name">{$nicheng}</a>
+        <div class="meta">
+            <span>{$idNum}楼 · {$mdate}</span>
+        </div>
+    </div>
+</div>
+<div class="comment-wrap">
+    <p>{$mcon}</p>
+    <div class="tool-group">
+        <a><i class="iconfont icon-zan"></i><span>赞</span></a>
+        <a uid="{$uid}" class="replay_btn"><i class="iconfont icon-pinglun"></i><span>评论</span></a>
+    </div>
+</div>
+<div class="sub-comment-list"></div>
+<div class="replyForm">
+    <div class="liuyan_box">
+        <textarea name="" placeholder="写下你的评论..." style="width: 100%"></textarea>
+    </div>
+    <div class="write-function-block" style="margin-right: 0;">
+        <a uid="{$uid}" state="{$idNum}" nicheng="{$nicheng}" class="btn btn-send message-send">发送</a>
+        <a class="cancel message-canel">取消</a>
+    </div>
+</div>

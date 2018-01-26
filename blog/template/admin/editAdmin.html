@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>编辑管理员信息</title>
+		<link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css" />
+	</head>
+    <style>
+        .container{
+            width: 90%;  height: auto;  margin: 20px auto 0;  text-align: center;
+        }
+        .form-control{
+            width: 50%;  display: inline-block;
+        }
+        form{
+            display: block;  margin-top: 50px;
+        }
+        .button{
+            width: 52%;  margin: 30px auto 0;
+        }
+    </style>
+	<body>
+		<div class="container">
+            <h1>编辑<span style="color: #1E9FFF">{$lname}</span><span>&nbsp;•&nbsp;</span><span style="color: #FF5722">{$aname}</span>的信息</h1>
+			<form action="index.php?m=admin&f=member&a=editAdminCon" method="post">
+                <input type="hidden" value="{$aid}" name="aid">
+			  	<div class="form-group">
+				    <label>姓名：</label>
+				    <input type="text" class="form-control" placeholder="管理员账户名" name="aname" value="{$aname}">
+			    </div>
+                <div class="form-group">
+                    <label>角色：</label>
+                    <select class="form-control" name="level">
+                        <option>请选择角色：</option>
+                        {foreach $data1 as $value}
+                        <option value="{$value['lid']}">{$value["lname"]}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+                </div>
+            </form>
+		</div>
+	</body>
+</html>

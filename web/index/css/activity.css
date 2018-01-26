@@ -1,0 +1,67 @@
+nav{
+    padding-top: 42px;
+    height: 106px;
+}
+.navi li:nth-last-child(4) a{
+    color: #7c6aa6;
+}
+.navi li:hover a{
+    color: #7C6AA6;
+    text-decoration: none;
+}
+.navi li a{
+    text-decoration: none;
+}
+.left_logo{
+    height: 44px;
+}
+.banner{
+    width: 100%;height: 230px;
+    background: url(../img/pattern-dark.png);
+    text-align: center;
+    padding-top: 20px;
+}
+.banner h3{
+    margin:0;color: #fff;
+    line-height: 190px;font-size: 60px;font-weight: 400;
+}
+.content_box{
+    width: 100%;
+    height:auto;
+    background: #fff;
+    padding: 60px 0;
+}
+.content_box main h2{
+    font-size: 50px;
+    font-weight: 300;
+    text-align: center;
+}
+.content_box main p{
+    font-size: 20px;
+    line-height: 20px;
+    color: #9b9b9b;
+    text-align: center;
+    margin: 13px 0 20px;
+}
+.activity_box{
+    width: 100%;height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.activity_box li img{
+    width: 100%;height: 220px;
+    margin-bottom: 16px;
+}
+.activity_box li span{
+    display: inline-block;
+    font-size: 14px;
+    color: #969696;
+    margin: 10px 10px 0 0;
+}
+.activity_box li p{
+    font-size: 14px;
+    line-height: 23px;
+    color: #969696;
+    text-align: left;
+    margin-bottom: 20px;
+}

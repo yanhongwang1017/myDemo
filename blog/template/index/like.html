@@ -1,0 +1,60 @@
+{include file=$header}
+<link rel="stylesheet" href="{CSS_URL}/homepage.css">
+<link rel="stylesheet" href="{CSS_URL}/lists.css">
+<link rel="stylesheet" href="{CSS_URL}/like.css">
+<style>
+    .meta a{
+        color: #7d7d7d;
+    }
+</style>
+    <section class="ibody">
+        <main>
+            <div class="left">
+                <div class="user">
+                    {if $photo == null}
+                    <a href="index.php?m=index&f=index&a=setting" class="user_photo"><img src="{IMG_URL}/avtar.png" alt=""></a>
+                    {else}
+                    <a href="index.php?m=index&f=index&a=setting" class="user_photo"><img src="{$photo}" alt=""></a>
+                    {/if}
+                    <div class="titlfe"><a href="">{$nicheng}</a></div>
+                    <ul class="info">
+                        <li><a href=""><p>{$uidNum}</p>关注<i class="iconfont icon-zuoyoujiantou-copy-copy-copy"></i></a></li>
+                        <li><a href=""><p>{$fansNum}</p>粉丝<i class="iconfont icon-zuoyoujiantou-copy-copy-copy"></i></a></li>
+                        <li><a href=""><p>{$articNum}</p>文章<i class="iconfont icon-zuoyoujiantou-copy-copy-copy"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="menu">
+                    <li>喜欢的文章 {$likeNum}</li>
+                </ul>
+                <ul class="guanzhu_list">
+                    {foreach $likeList as $value}
+                    <li>
+                        <div class="content">
+                            <div class="author">
+                                <a class="avatar" target="_blank" href=""><img src="{$value['photo']}" alt=""></a>
+                                <div class="name">
+                                    <a class="blue-link" target="_blank" href="javascript:void (0);">{$value["nicheng"]}</a>
+                                    <span>{$value["condate"]}</span>
+                                </div>
+                            </div>
+                            <a class="title" target="_blank" href="index.php?m=index&f=index&a=content&cid={$value['cid']}">{$value["ctitle"]}</a>
+                            <p class="abstract">{$value["jianjie"]}</p>
+                            <div class="meta">
+                                <a><i class="glyphicon glyphicon-eye-open"></i>{$value["hnum"]}</a>
+                                <a><i class="glyphicon glyphicon-comment"></i>{$value['messageNum']}</a>
+                            </div>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="right">
+                <ul class="like">
+                    <li><a href=""><div class="iconfont icon-liebiao2"></div><span>我关注的专题/文章</span></a></li>
+                    <li><a href=""><div class="iconfont icon-xihuan"></div><span>我喜欢的文章</span></a></li>
+                </ul>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{include file=$header}
+<link rel="stylesheet" href="{CSS_URL}/index.css">
+<script src="{JS_URL}/index.js"></script>
+    <!--主体-->
+    <section class="ibody">
+        <main>
+            <!--banner图-->
+            <div class="banner">
+                <ul class="left_banner">
+                    <li><a href="index.php?m=index&f=index&a=content&cid=1"><img src="{IMG_URL}/a13c.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=2"><img src="{IMG_URL}/abccae.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=3"><img src="{IMG_URL}/d0c14.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=4"><img src="{IMG_URL}/42a6cb59c5e98.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=5"><img src="{IMG_URL}/b7d070.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=6"><img src="{IMG_URL}/45.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=7"><img src="{IMG_URL}/7d870.jpg" alt=""></a></li>
+                </ul>
+                <ul class="right_banner">
+                    <li><a href="index.php?m=index&f=index&a=content&cid=1"><img src="{IMG_URL}/7d870.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=2"><img src="{IMG_URL}/45.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=3"><img src="{IMG_URL}/b7d070.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=4"><img src="{IMG_URL}/42a6cb59c5e98.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=5"><img src="{IMG_URL}/d0c14.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=6"><img src="{IMG_URL}/abccae.jpg" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=content&cid=7"><img src="{IMG_URL}/a13c.jpg" alt=""></a></li>
+                </ul>
+
+                <div class="left_btn"><div class="iconfont icon-zuoyoujiantou-copy-copy-copy1"></div></div>
+                <div class="right_btn"><div class="iconfont icon-zuoyoujiantou-copy-copy-copy"></div></div>
+            </div>
+            <!--左侧的一列-->
+            <div class="left">
+                <ul class="titles">
+                    {foreach $data1 as $value}
+                    <li>
+                        <a href="index.php?m=index&f=index&a=lists&cid={$value['cid']}" target="_blank">
+                            <img src="{$value['cimage']}" alt="">
+                            <div class="name">{$value['cname']}</div>
+                        </a>
+                    </li>
+                    {/foreach}
+                    <li><a href="index.php?m=index&f=index&a=lists" target="_blank"></a></li>
+                </ul>
+                <!--内容列表-->
+                <ul class="content">
+                    {foreach $data2 as $value}
+                    <li>
+                        <div class="left_content">
+                            <div class="author">
+                                <div class="author_photo"><img src="{$value['photo']}" alt=""></div>
+                                <div class="author_name">{$value["nicheng"]}</div>
+                                <div class="time">{$value["condate"]}</div>
+                            </div>
+                            <div class="content_title"><a href="index.php?m=index&f=index&a=content&cid={$value['cid']}">{$value["ctitle"]}</a></div>
+                            <div class="contets">{$value["jianjie"]}</div>
+                            <dl class="content_bottom">
+                                <dt class="fenlei"><a href="index.php?m=index&f=index&a=lists&cid={$value['catid']}">{$value["cname"]}</a></dt>
+                                <dt><a href="javascript:void(0);" class="glyphicon glyphicon-eye-open"><span>{$value["hnum"]}</span></a></dt>
+                                <dt><a href="javascript:void(0);" class="glyphicon glyphicon-comment"><span>{$value["messageNum"]}</span></a></dt>
+                            </dl>
+                        </div>
+                        <div class="right_pic"><img src="{$value['thumb']}" alt=""></div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <!--右侧的一列-->
+            <div class="right">
+                <ul class="borad">
+                    <li><a href="index.php?m=index&f=index&a=collection&kind=1"><img src="{IMG_URL}/aside/1.png" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=collection&kind=2"><img src="{IMG_URL}/aside/2.png" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=collection&kind=3"><img src="{IMG_URL}/aside/3.png" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=collection&kind=4"><img src="{IMG_URL}/aside/4.png" alt=""></a></li>
+                    <li><a href="index.php?m=index&f=index&a=collection&kind=5"><img src="{IMG_URL}/aside/5.png" alt=""></a></li>
+                </ul>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

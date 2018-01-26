@@ -1,0 +1,62 @@
+.menu li:first-child{
+    border-bottom: 2px solid #646464;
+}
+.menu li:last-child{
+    border-bottom: none;
+}
+.guanzhu_list{
+    width: 625px;
+    height:auto;
+}
+.guanzhu_list li{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: normal;
+    padding-top: 0!important;
+}
+.guanzhu_img{
+    width: 52px;
+    height: 52px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.guanzhu_img img{
+    width: 100%;
+}
+.guanzhu_info{
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 450px;
+}
+.guanzhu_title{
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+}
+.meta{
+    padding-top: 2px;
+    font-size: 12px;
+    color: #969696;
+}
+.meta a{
+    margin-right: 3px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #3194d0;
+}
+.guanzhu_list li button{
+    float: right;
+    margin-top: 8px;
+    padding: 8px 0;
+    width: 100px;
+    font-size: 15px;
+    border: 1px solid hsla(0,0%,59%,.6);
+    background: none;
+    border-radius: 40px;
+}
+.guanzhu_list li button a{
+    display: block;
+    color: #969696;
+}

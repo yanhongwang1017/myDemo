@@ -1,0 +1,228 @@
+.navi li .iconfont{
+    color: #333;
+}
+.navi li:first-child a{
+    color: #333;
+}
+.mains{
+    width: 100%;
+    height:auto;
+    margin: 30px auto 0;
+    position: relative;
+}
+.aside{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 86px 0 0;
+    padding: 0 0 30px;
+    width: 280px;
+    overflow: auto;
+}
+.aside li{
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.setting-icon{
+    margin-right: 15px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    color: #fff;
+    background-color: #a0a0a0;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.setting-icon i{
+    margin: 6px 0 0 1px;
+    font-size: 20px;
+    display: block;
+    color:#fff;
+}
+.rights{
+    width: 625px;
+    height: auto;
+    position: absolute;
+    top:0;
+    right:0;
+}
+.setting{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.setting_pic{
+    width: 100%;
+    height: 120px;
+}
+.setting_pic img{
+    width: 100px;
+    height: 100px;
+    float: left;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+}
+.btn-change{
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e!important;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none;
+    outline:none;
+    user-select: none;
+    position: relative;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+input[type=file]{
+    position: absolute;
+    left: 0;
+    top:0;
+    display: block;
+    width: 100px;
+}
+.setting_nicheng{
+    width: 100%;
+    height: 72px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+.setting-title{
+    font-size: 15px;
+    color: #969696;
+    padding: 20px 0;
+    float: left;
+    margin-right: 30px;
+}
+.shuru{
+    margin-top: 13px;
+    float: left;
+}
+input[type=text] {
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0, 0%, 71%, .1);
+    outline:none;
+}
+.send-eamil{
+    margin-top: 16px;
+}
+.btn-save{
+    width: 100px;
+    margin: 30px 0 60px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #42c02e;
+}
+.btn-save:hover{
+    color: #fff;
+}
+#phone{
+    padding:20px 20px 0;
+}
+.input-prepend{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.phone-input{
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+    padding-left: 120px!important;
+    border-bottom: none!important;
+    border-radius: 4px 4px 0 0!important;
+}
+.overseas-number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 50px;
+    font-size: 18px;
+    color: #969696;
+    border-right: 1px solid #c8c8c8;
+    line-height:50px;
+}
+.overseas-number i{
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    font-size: 22px;
+    color: #969696;
+}
+.overseas-number span{
+    margin-top: 17px;
+    padding-left: 35px;
+    text-align: left;
+    font-size: 14px;
+    display: block;
+    color: #333;
+    margin: 0 20px 0 6px;
+}
+.code{
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    background-color: hsla(0,0%,71%,.1);
+    padding: 4px 12px 4px 35px!important;
+    border-radius: 0 0 4px 4px!important;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+}
+.glyphicon-lock{
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    font-size: 18px;
+    color: #969696;
+}
+.btn-in-resend{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 100px;
+    height: 36px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    background-color: #3194d0;
+    border-radius: 20px;
+    line-height: 36px;
+    cursor: pointer;
+}
+.btn-in-resend:hover{
+    color: #fff;
+}
+.sign-in-button{
+    width: 100%;
+    padding: 9px 18px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    background: #3194d0;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    clear: both;
+}

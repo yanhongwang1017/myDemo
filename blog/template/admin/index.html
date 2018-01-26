@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>后台管理系统管理系统</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="{STATIC_URL}/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+        <link href="{STATIC_URL}/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+        <link href="{STATIC_URL}/assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="header">
+            <div class="dl-title">
+                <span class="lp-title-port">Blog</span><span class="dl-title-text">后台管理系统</span>
+            </div>
+            <div class="dl-log">欢迎您，<span class="dl-log-user">{$admin}</span>
+                <a href="index.php?m=admin&f=login&a=logout" title="退出系统" class="dl-log-quit">[退出]</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="dl-main-nav">
+                <div class="dl-inform"><div class="dl-inform-title">贴心小秘书<s class="dl-inform-icon dl-up"></s></div></div>
+                <ul id="J_Nav"  class="nav-list ks-clear">
+                    <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
+                    <li class="nav-item"><div class="nav-item-inner nav-order">管理员和用户</div></li>
+                    <li class="nav-item"><div class="nav-item-inner nav-inventory">内容管理</div></li>
+                    <li class="nav-item"><div class="nav-item-inner nav-supplier">详情页</div></li>
+                    <li class="nav-item"><div class="nav-item-inner nav-marketing">图表</div></li>
+                </ul>
+            </div>
+            <ul id="J_NavContent" class="dl-tab-conten"></ul>
+        </div>
+        <script type="text/javascript" src="{JS_URL}/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="{STATIC_URL}/assets/js/bui-min.js"></script>
+        <script type="text/javascript" src="{STATIC_URL}/assets/js/config-min.js"></script>
+
+        <script>
+            BUI.use('common/main',function(){
+                var config = [{
+                    id:'menu',
+                    homePage : 'welcome',
+                    menu:[{
+                        text:'首页内容',
+                        items:[{
+                                id:'welcome',text:'欢迎页面',href:'index.php?m=admin&f=index&a=welcome',closeable : false
+                        }]
+                    }]
+                },{
+                    id:'form',
+                    menu:[{
+                        text:'管理员管理',
+                        items:[{
+                            id:'showAdmin',text:'查看管理员',href:'index.php?m=admin&f=member&a=showAdmin'
+                        },{
+                            id:'addAdmin',text:'添加管理员',href:'index.php?m=admin&f=member&a=addAdmin'
+                        }]
+                    },{
+                        text:'管理员角色',
+                        items:[{
+                            id:'showRole',text:'查看角色',href:'index.php?m=admin&f=member&a=showRole'
+                        }]
+                    },{
+                        text:'用户管理',
+                        items:[{
+                            id:'showUser',text:'查看用户',href:'index.php?m=admin&f=user&a=showUser'
+                        }]
+                    },{
+                        text:'用户角色',
+                        items:[{
+                                id:'showUserRole',text:'查看角色',href:'index.php?m=admin&f=user&a=showUserRole'
+                            },{
+                                id:'addUserRole',text:'添加角色',href:'index.php?m=admin&f=user&a=addUserRole'
+                        }]
+                    }]
+                },{
+                    id:'content',
+                    menu:[{
+                        text:'分类管理',
+                        items:[{
+                            id:'addCategory',text:'添加分类',href:'index.php?m=admin&f=category&a=addCategory'
+                        },{
+                            id:'showCategory',text:'查看分类',href:'index.php?m=admin&f=category&a=showCategoryPage'
+                        }]
+                    },{
+                        text:'推荐位管理',
+                        items:[{
+                            id:'showPosition',text:'查看推荐位',href:'index.php?m=admin&f=content&a=showPosition'
+                        },{
+                            id:'addPosition',text:'添加推荐位',href:'index.php?m=admin&f=content&a=addPosition'
+                        }]
+                    },{
+                        text:'内容管理',
+                        items:[{
+                            id:'showCon',text:'查看内容',href:'index.php?m=admin&f=content&a=showCon'
+                        }]
+                    },{
+                        text : '留言管理',
+                        items : [{
+                            id : 'showMessage',text : '查看留言',href : 'index.php?m=admin&f=message&a=showMessage'
+                        }]
+                    }]
+                },{
+                    id:'detail',
+                    menu:[{
+                        text:'详情页面',
+                        items:[{
+                            id:'role',text:'角色',href:'index.php?m=admin&f=user&a=role'
+                        },{
+                            id:'example',text:'详情页面示例',href:''
+                        },{
+                            id:'introduce',text:'详情页面简介',href:''
+                        }]
+                    }]
+                },{
+                    id : 'chart',
+                    menu : [{
+                        text : '图表',
+                        items:[{
+                            id:'code',text:'引入代码',href:''
+                        },{
+                            id:'line',text:'折线图',href:''
+                        },{
+                            id:'area',text:'区域图',href:''
+                        },{
+                          id:'column',text:'柱状图',href:''
+                        }]
+                    }]
+                }];
+                new PageUtil.MainPage({
+                    modulesConfig : config
+                });
+            });
+  </script>
+ </body>
+</html>

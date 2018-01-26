@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+    <script src="upload.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        window.onload = function () {
+            let box = document.querySelector('.box')
+            let uploadObj = new upload();
+            uploadObj.createView({parent:box});
+            uploadObj.up("upload.php",function (e) {
+                console.log(e);
+            });
+        }
+    </script>
+</body>
+</html>

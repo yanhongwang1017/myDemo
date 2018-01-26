@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看内容详情</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+</head>
+<style>
+    .layui-container{   width: 90%;margin: 20px auto 0;}
+    .layui-container h2{    font-size: 30px;text-align: center;color: #0e0e0e;margin-bottom: 16px;}
+    .layui-container h3{    font-size: 20px;color: #0e0e0e;margin-bottom: 10px;}
+    .layui-container p{ font-size: 18px;text-indent: 36px;}
+    .content{ width: 60%;word-wrap:break-word;margin-bottom: 20px;float: left;}
+    .layui-form-label{  width: 100px;}
+    .thumb{ width: 35%;float: right;margin-right: 20px;}
+    .thumb img{ width: 100px;}
+    .content img{ width: 100%;}
+</style>
+<body>
+    <div class="layui-container">
+        <h2>{$data["ctitle"]}</h2>
+        <div class="content">
+            <h3>内容简介：</h3>
+            <p style="margin-bottom: 30px;">{$data["jianjie"]}</p>
+            <h3>内容详情：</h3>
+            <p>{$data["con"]}</p>
+        </div>
+        <div class="thumb"><img src="{$data['thumb']}" alt=""></div>
+        <form class="layui-form" action="index.php?m=admin&f=content&a=check&cid={$data['cid']}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">该文章属性：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="cquanxian" value="1" title="普通文章" {if $data["cquanxian"]==1}checked{/if}>
+                    <input type="radio" name="cquanxian" value="2" title="精品文章" {if $data["cquanxian"]==2}checked{/if}>
+                    <input type="radio" name="cquanxian" value="3" title="极品好文章" {if $data["cquanxian"]==3}checked{/if} >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否发布：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="state" value="1" title="保存" {if $data["state"]==1}checked{/if}>
+                    <input type="radio" name="state" value="2" title="审核" {if $data["state"]==2}checked{/if}>
+                    <input type="radio" name="state" value="3" title="发布" {if $data["state"]==3}checked{/if}>
+                    <input type="radio" name="state" value="4" title="禁用" {if $data["state"]==4}checked{/if}>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="submit" class="layui-btn" value="提交">
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+        <script>
+            layui.use('form', function(){
+                var form = layui.form;
+            });
+        </script>
+    </div>
+</body>
+</html>

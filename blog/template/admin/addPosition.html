@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加推荐位</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+</head>
+<style>
+    .layui-container{
+        width: 60%;margin: 20px auto 0;
+    }
+    h2{
+        font-size: 20px;text-align: center;margin-bottom: 16px;
+    }
+</style>
+<body>
+    <div class="layui-container">
+        <h2>添加推荐位</h2>
+        <form class="layui-form layui-form-pane" action="index.php?m=admin&f=content&a=addPositionCon" method="post">
+            <div class="layui-form-item" style="margin-bottom: 26px">
+                <label class="layui-form-label">推荐位</label>
+                <div class="layui-input-block">
+                    <input type="text" name="pname" required lay-verify="required" placeholder="请输入推荐位" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

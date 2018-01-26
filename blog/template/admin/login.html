@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<meta http-equiv="X-UA-Compatible"content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="{CSS_URL}/adminLogin.css">
+        <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+        <script src="{JS_URL}/jquery.validate.min.js"></script>
+        <script src="{JS_URL}/adminLogin.js"></script>
+	  	<title>管理员登录页</title>
+	</head>
+	<body>
+    <div class="logo"><a href="javascript:void(0);">BlogAdmin</a></div>
+        <div class="container">
+            <form method="post" action="index.php?m=admin&f=login&a=check">
+                <div class="title">管理员登录</div>
+                <input name="username" type="text" id="username" placeholder="管理员账户" required autofocu autocomplete="off"/>
+                <label id="username-error" class="error" for="username"></label>
+                <hr class="hr15"/>
+                <input name="password" type="password" id="password" placeholder="密码" required>
+                <label id="password-error" class="error" for="password"></label>
+                <hr class="hr15"/>
+                <input name="aphone" type="text" id="aphone" placeholder="请输入您的手机号码" style="float: left" autocomplete="off">
+                <button type="button" class="btn sendbtn">获取短信验证码</button>
+                <label id="aphone-error" class="error" for="aphone"></label>
+                <hr class="hr15"/>
+                <input name="phonecode" type="text" id="phonecode" placeholder="输入您收到的短信验证码" autocomplete="off">
+                <label id="phonecode-error" class="error" for="phonecode"></label>
+                <hr class="hr15"/>
+                输入验证码:
+                <div class="captcha">
+                    <input type="text" name="captcha" autocomplete="off" id="captcha" required><br>
+                    <label id="captcha-error" class="error" for="captcha"></label>
+                    <div class="code">
+                        <img src="index.php?m=admin&f=login&a=imagecode" alt="">
+                    </div>
+                </div>
+                <button type="submit" class="btn logins">登陆</button>
+                <span class="forget">忘记密码<a href="javascript:void (0);">点击这里</a></span>
+            </form>
+        </div>
+    </body>
+</html>

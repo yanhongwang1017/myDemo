@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加内容</title>
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <link rel="stylesheet" href="{CSS_URL}/index.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+    .layui-container{ width: 90%;margin: 20px auto 0;}
+    .layui-btn{  margin-bottom: 20px;}
+    .layui-btn a{ color: #fff;}
+    a:hover{  text-decoration: none;}
+    .content li .btn{ margin-bottom:0;position: absolute;left: 0;bottom:0px;}
+    .content li .layui-btn-danger{ left: 90px;}
+    .layui-btn a {  display: block;width: 100%;height: 100%;}
+</style>
+<body>
+    <div class="layui-container">
+        <button class="layui-btn" onclick="location.href = 'index.php?m=index&f=write&a=addConCon&cid={$cid}'">
+            <a href="index.php?m=index&f=write&a=addConCon&cid={$cid}">
+                <i class="layui-icon">&#xe608;</i> 添加内容
+            </a>
+        </button>
+        <ul class="content">
+            {foreach $data as $value}
+            <li>
+                <div class="left_content">
+                    <div class="author">
+                        <div class="author_photo"><img src="{$value['photo']}" alt=""></div>
+                        <div class="author_name">{$value["nicheng"]}</div>
+                        <div class="time">{$value["condate"]}</div>
+                    </div>
+                    <div class="content_title"><a href="index.php?m=index&f=index&a=content&cid={$value['cid']}" target="_blank">{$value["ctitle"]}</a></div>
+                    <div class="contets">{$value["jianjie"]}</div>
+                    <dl class="content_bottom">
+                        <dt class="fenlei"><a href="index.php?m=index&f=index&a=lists&cid={$value['catid']}" target="_blank">{$data1["cname"]}</a></dt>
+                        <dt><a href="" class="glyphicon glyphicon-eye-open" target="_blank"><span>{$value["hnum"]}</span></a></dt>
+                        <dt><a href="" class="glyphicon glyphicon-comment"><span>{$value["messageNum"]}</span></a></dt>
+                    </dl>
+                </div>
+                <div class="right_pic"><img src="{$value['thumb']}" alt=""></div>
+                <a class="btn layui-btn" href="index.php?m=index&f=write&a=editCon&cid={$value['cid']}">编辑</a>
+                <!--<button class="btn layui-btn"><a href="index.php?m=index&f=write&a=editCon&cid={$value['cid']}">编辑</a></button>-->
+                <button attr="{$value['cid']}" class="btn layui-btn layui-btn-danger">删除</button>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            layui.use('layer',function () {
+                var layer = layui.layer;
+                $(".layui-btn-danger").on("click",function () {
+                    let that = $(this);
+                    let cid = that.attr("attr");
+                    layer.confirm('确定删除该内容吗？', {
+                        btn: ['确定','取消']
+                    }, function(){
+                        $.ajax({
+                            url:"index.php?m=index&f=write&a=delCon&cid="+cid,
+                            success:function (e) {
+                                if (e == "ok"){
+                                    that.parent().remove();
+                                    layer.msg('删除成功');
+                                }
+                            }
+                        })
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+    <table width="800" border="1" cellspacing="0" align="center">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>电话</th>
+            <th>操作</th>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function () {
+            let ajax = new XMLHttpRequest();
+            ajax.responseType = "json";
+            ajax.onload = function () {
+                let doc = ajax.response;
+                console.log(doc)
+                for (let i = 0; i < doc.length; i++){
+                    let tr = $("<tr>");
+                    let td = '';
+                    td += "<td>"+doc[i].name+"</td>";
+                    td += "<td>"+doc[i].sex+"</td>";
+                    td += "<td>"+doc[i].age+"</td>";
+                    td += "<td>"+doc[i].tel+"</td>";
+                    td += "<td><span>删除</span><span>编辑</span></td>";
+                    tr.html(td);
+                    tr.appendTo("tbody");
+                }
+                $("<tr>").html("+").css({width:"100%",height:30,lineHeight:30, textAlign:'center'}).appendTo('tbody');
+            }
+            ajax.open("get","demo.php",true);
+            ajax.send();
+        })
+    </script>
+</body>
+</html>

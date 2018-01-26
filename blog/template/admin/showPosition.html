@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看推荐位</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+    caption{  font-size: 26px;text-align: center;margin-bottom: 16px;  }
+    .layui-table th,table td{  text-align: center;  }
+    .layui-table th{    font-weight: bolder; }
+    #pages{  margin:20px auto 0;  }
+</style>
+<body>
+    <div class="layui-container">
+        <table class="layui-table lay-even">
+            <caption>推荐位详细信息</caption>
+            <colgroup>
+                <col width="150">
+                <col width="200">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>推荐位名称</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $result as $value}
+                <tr>
+                    <td>{$value["pid"]}</td>
+                    <td attr="{$value['pid']}" class="pname">{$value["pname"]}</td>
+                    <td>
+                        <button attr="{$value['pid']}" class="layui-btn layui-btn-danger">删除</button>
+                    </td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+        <div id="pages">{$pages}</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("tbody").on("dblclick",".pname",function () {
+                let that = $(this);
+                let pid = that.attr("attr");
+                let oldVal = $(this).html();
+                that.html("");
+                let input = $("<input type='text'>").val(oldVal).appendTo(this).focus();
+                input.blur(function () {
+                    let newVal = $(this).val();
+                    if (oldVal != newVal){
+                        $.ajax({
+                            url:"index.php?m=admin&f=content&a=editPosition",
+                            data:{ pid:pid,pname:newVal},
+                            type:"post",
+                            success:function (e) {
+                                if (e == "ok"){
+                                    alert('编辑成功');
+                                }else if (e == "no"){
+                                    alert("编辑失败")
+                                }
+                            }
+                        })
+                    }
+                    input.remove();
+                    that.html(newVal);
+                })
+            });
+            layui.use('layer',function () {
+                var layer = layui.layer;
+                $(".layui-btn-danger").on("click",function () {
+                    let that = $(this);
+                    let pid = that.attr("attr");
+                    layer.confirm('确定删除该推荐位吗？', {
+                        btn: ['确定','取消']
+                    }, function(){
+                        $.ajax({
+                            url:"index.php?m=admin&f=content&a=delPosition&pid="+pid,
+                            success:function (e) {
+                                if (e == "ok"){
+                                    that.parent().parent().remove();
+                                    layer.msg('删除成功');
+                                }else if(e == "no"){
+                                    layer.msg('删除失败');
+                                }
+                            }
+                        })
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

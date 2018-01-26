@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加管理员</title>
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+</head>
+<style>
+    .container{
+        width: 90%;  height: auto;  margin: 20px auto 0;  text-align: center;
+    }
+    .form-control{
+        width: 50%;  display: inline-block;
+    }
+    form{
+        display: block;  margin-top: 50px;
+    }
+    .button{
+        width: 52%;  margin: 30px auto 0;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>添加管理员</h1>
+        <form action="index.php?m=admin&f=member&a=addAdminCon" method="post">
+            <div class="form-group">
+                <label>姓名：</label>
+                <input type="text" class="form-control" placeholder="管理员账户名" name="aname">
+            </div>
+            <div class="form-group">
+                <label>密码：</label>
+                <input type="password" class="form-control" placeholder="密码" name="apass">
+            </div>
+            <div class="form-group">
+                <label>角色：</label>
+                <select class="form-control" name="level">
+                    <option>请选择角色：</option>
+                    {foreach $data as $value}
+                    <option value="{$value['lid']}">{$value["lname"]}</option>
+                    {/foreach}
+                </select>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

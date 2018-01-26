@@ -1,0 +1,68 @@
+{include file=$header}
+<link rel="stylesheet" href="{CSS_URL}/index.css">
+</head>
+<style>
+    .mains{
+        width: 690px;
+        margin: 0 auto;
+    }
+    .collection_pic{
+        width: 650px;
+        height: 110px;
+        margin: 20px 0 0;
+    }
+    .collection_pic img{
+        width: 100%;
+    }
+    .navi li .iconfont{
+        color: #333;
+    }
+    .navi li:first-child a{
+        color: #333;
+    }
+</style>
+    <!--主体-->
+    <section class="ibody">
+        <div class="mains">
+            {if $kind==1}
+            <div class="collection_pic"><img src="{IMG_URL}/kind1.png" alt=""></div>
+            {elseif $kind==2}
+            <div class="collection_pic"><img src="{IMG_URL}/kind2.png" alt=""></div>
+            {elseif $kind==3}
+            <div class="collection_pic"><img src="{IMG_URL}/kind3.png" alt=""></div>
+            {elseif $kind==4}
+            <div class="collection_pic"><img src="{IMG_URL}/aside/4.png" alt=""></div>
+            {elseif $kind==5}
+            <div class="collection_pic"><img src="{IMG_URL}/aside/5.png" alt=""></div>
+            {else}
+            <div class="collection_pic"><img src="{IMG_URL}/collect.png" alt=""></div>
+            {/if}
+            <!--左侧的一列-->
+            <div class="left">
+                <!--内容列表-->
+                <ul class="content">
+                    {foreach $data1 as $v}
+                    <li>
+                        <div class="left_content">
+                            <div class="author">
+                                <div class="author_photo"><img src="{$v['photo']}" alt=""></div>
+                                <div class="author_name">{$v["nicheng"]}</div>
+                                <div class="time">{$v['condate']}</div>
+                            </div>
+                            <div class="content_title"><a href="index.php?m=index&f=index&a=content&cid={$v['cid']}">{$v["ctitle"]}</a></div>
+                            <div class="contets">{$v["jianjie"]}</div>
+                            <dl class="content_bottom">
+                                <dt class="fenlei"><a href="">{$v["cname"]}</a></dt>
+                                <dt><a href="" class="glyphicon glyphicon-eye-open"><span>{$v["hnum"]}</span></a></dt>
+                                <dt><a href="" class="glyphicon glyphicon-comment"><span>{$v["messageNum"]}</span></a></dt>
+                            </dl>
+                        </div>
+                        <div class="right_pic"><img src="{$v['thumb']}" alt=""></div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

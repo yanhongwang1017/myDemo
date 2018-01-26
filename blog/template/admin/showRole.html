@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查看管理员角色信息</title>
+    <link href="{STATIC_URL}/assets/css/dpl-min.css" rel="stylesheet">
+    <link href="{STATIC_URL}/assets/css/bui-min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="demo-content">
+        <div class="row">
+            <div class="span16">
+                <div id="grid"></div>
+            </div>
+        </div>
+        <!-- 初始隐藏 dialog内容 -->
+        <div id="content" class="hide">
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="control-group span8">
+                        <label class="control-label"><s>*</s>角色名称：</label>
+                        <div class="controls">
+                            <input type="hidden" name="lid">
+                            <input type="text" name="lname" data-rules="{ required:true }" class="input-normal control-text" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span12">
+                        <label class="control-label">内容权限：</label>
+                        <div class="controls bui-form-field-select" data-select="{ multipleSelect:true,items : [{ text:'添加',value:'1' },{ text:'删除',value:'2' },{ text:'编辑',value:'3' },{ text:'查询',value:'4' }]}">
+                            <input type="hidden" name="connum">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span12">
+                        <label class="control-label">留言权限：</label>
+                        <div class="controls bui-form-field-select" data-select="{ multipleSelect:true,items : [{ text:'添加',value:'1' },{ text:'删除',value:'2' },{ text:'编辑',value:'3' },{ text:'查询',value:'4' }]}">
+                            <input type="hidden" name="messagenum">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span12">
+                        <label class="control-label">管理员权限：</label>
+                        <div class="controls bui-form-field-select" data-select="{ multipleSelect:true,items : [{ text:'添加',value:'1' },{ text:'删除',value:'2' },{ text:'编辑',value:'3' },{ text:'查询',value:'4' }]}">
+                            <input type="hidden" name="adminnum">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+        <script src="{STATIC_URL}/assets/js/bui-min.js"></script>
+        <script src="{JS_URL}/showRole.js"></script>
+    </div>
+</body>
+</html>

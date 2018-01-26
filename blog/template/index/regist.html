@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+    <link href="{CSS_URL}/indexLogin.css" rel='stylesheet' type='text/css' />
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script src="{JS_URL}/jquery.validate.min.js"></script>
+    <script src="{JS_URL}/indexLogin.js"></script>
+</head>
+<style>
+    label{  font-weight:400; }
+    #username,#password,#password1{  width: 80%;  }
+    input[name=code]{ width: 70%;  float: right;margin-right: 40px; }
+    .glyphicon-lock,.glyphicon-phone,.glyphicon-send{  width: 53px;float: left;margin-left: 45px;line-height: 61px;color: #56565F;border-bottom: 1px solid#484856;  }
+    #phoneNum{ background:transparent;width:48%;margin-right:0px;padding: 1em 1em 1em 0;color: #9199aa;font-size: 18px;outline: none;border: none;font-weight: 100;border-bottom: 1px solid#484856;  }
+    .glyphicon-lock,.glyphicon-send{ line-height: 60px; }
+    .sendCode{ margin-right: 40px;margin-top: 16px;z-index: 10; }
+    #phoneCode{ width: 68%;padding: 1em 1em 1em 0;margin-right: 39px;background: transparent;border:none;outline: none;font-size: 18px;font-weight:100;border-bottom: 1px solid#484856; }
+    #phoneNum-error{ position: absolute;right: 139px;top: 21px; }
+    #code-error{ position: absolute;right: 180px;  top: 21px; }
+</style>
+<body>
+    <div class="tittle"><a href="index.php?m=index&f=index">心灵驿站</a></div>
+    <div class="login-form">
+        <div class="title">
+            <button type="button" class="btn btn-default btn-primary" onclick="location.href = 'index.php?m=index&f=login'"><a href="index.php?m=index&f=login" class="denglu" style="color: #fff">登录</a></button>
+            <button type="button" class="btn btn-default"><a href="javascript:void (0);" class="denglu">注册</a></button>
+        </div>
+        <div class="login login2">
+            <form class="regist" action="index.php?m=index&f=login&a=regist" method="post">
+                <div class="key">
+                    <input type="text" name="username" id="username" class="regitInput" autocomplete="off" placeholder="用户名">
+                    <div class="error_box">
+                        <label id="username-error" class="error reg_error" for="username"></label>
+                    </div>
+                </div>
+                <div class="key">
+                    <input type="password" name="password" id="password" placeholder="密码">
+                    <div class="error_box">
+                        <label id="password-error" class="error" for="password"></label>
+                    </div>
+                </div>
+                <div class="key">
+                    <input type="password" name="password1" id="password1" placeholder="确认密码">
+                    <div class="error_box">
+                        <label id="password1-error" class="error" for="password1"></label>
+                    </div>
+                </div>
+                <div class="key">
+                    <div class="glyphicon glyphicon-phone"></div>
+                    <div class="btn btn-default sendCode" style="float: right;">发送验证码</div>
+                    <input type="text" id="phoneNum" name="phoneNum" autocomplete="off" placeholder="请输入手机号">
+                    <label id="phoneNum-error" class="error" for="phoneNum"></label>
+                </div>
+                <div class="key" style="width: 100%;">
+                    <div class="glyphicon glyphicon-send"></div>
+                    <input type="text" placeholder="手机验证码" autocomplete="off" name="phoneCode" id="phoneCode">
+                    <div class="error_box">
+                        <label id="phoneCode-error" class="error" for="phoneCode"></label>
+                    </div>
+                </div>
+                <div class="code">
+                    <div class="glyphicon glyphicon-lock"></div>
+                    <input type="text" name="code" id="code" autocomplete="off" placeholder="右侧图形验证码">
+                    <label id="code-error" class="error" for="code"></label>
+                    <div class="code_box"><img src="index.php?m=index&f=login&a=imagecode" alt=""></div>
+                </div>
+                <div class="signin">
+                    <input type="submit" value="注册" >
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

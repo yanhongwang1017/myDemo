@@ -1,0 +1,395 @@
+/*导航栏*/
+nav{
+	padding-top: 42px;
+}
+.navi li{
+	position: relative;
+}
+.navi li a{
+	color: #000000;
+}
+.navi li:nth-child(2) a{
+	color: #7C6AA6;
+}
+.navi li:hover a{
+	color: #7C6AA6;
+}
+.banner1{
+    width: 100%;
+    height:569px;
+    position: relative;
+    cursor: pointer;
+}
+.img_box{
+    width: 100%;
+    height:569px;
+    position: absolute;
+    left:0;
+    top:0;
+    overflow: hidden;
+}
+.img_box li{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    left:100%;
+    top:0;
+}
+.img_box li:first-child{
+    left:0;
+}
+.img_box li img{
+    width: 100%;
+    height:100%;
+}
+.wordAtea{
+    width: 1082px;
+    height: 249px;
+    position: absolute;
+    left: 177px;
+    bottom:0;
+}
+.wordAtea h4{
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 36px;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+.wordAtea p{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.btn{
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    right: 200px;
+    bottom:30px;
+    display: flex;
+    justify-content:space-around;
+}
+.btn li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background:#fff;
+    cursor: pointer;
+}
+.btn li:first-child{
+    background: #7c6aa6;
+}
+/*跨平台级企业浏览内核*/
+.brown{
+    width: 100%;height: 617px;
+    background: #fff;
+    padding:50px 0;
+    text-align: center;
+}
+.brown h2{
+    width: 100%;
+    font-size: 50px;
+    font-weight:300;
+}
+.brown p{
+    font-size: 20px;
+    line-height:30px;
+    color: #9b9b9b;
+    margin: 13px 0 0;
+}
+.product_show{
+    width: 100%;height: 412px;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.product_show li{
+    width: 20%;
+    height: 206px;
+    position: relative;
+    cursor: pointer;
+}
+.product_show li img{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top: 0;
+}
+.mask{
+    width: 100%;height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left:0;
+    top:0;
+}
+.zhuce{
+    width: 100%;height: 40px;
+    text-align: center;
+    padding:30px 0;
+    padding-top: 40px;
+    background: #FFFFFF;
+    border-bottom:1px solid #aca9ad;
+}
+.zhuce span{
+    font-size: 20px;
+    color: #9b9b9b;
+}
+.zhuce button{
+    width: 90px;height: 32px;
+    text-align: center;
+    font-size: 14px;
+    padding: 7px 30px;
+    background: #59bcdb;
+    border:none;
+    outline:none;
+    border-radius: 24px;
+    cursor: pointer;
+}
+.zhuce button a{
+	color: #FFFFFF;
+}
+/*功能特色*/
+.gongneng{
+    width: 100%;
+    height:808px;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+.gongneng h2{
+    text-align: center;
+    margin: 65px auto;
+    font-size: 32px;
+    font-weight:300;
+}
+.gongneng_box{
+    width: 1226px;
+    height:627px;
+    margin: 0 auto;
+}
+.gongneng_box li{
+    width: 33.3333333%;
+    height: 50%;
+    float: left;
+    cursor: pointer;
+}
+.gongneng_box li img{
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+}
+.gongneng_box li h3{
+    font-size: 18px;
+    margin: 50px 0 20px;
+    text-align: center;
+}
+.gongneng_box li p{
+    color: #7c7c7c;
+    margin: 20px auto;
+    padding: 0 30px;
+    font-size: 14px;
+}
+/*产品服务*/
+.serves{
+	width: 100%;height: 770px;
+	background: #FfFFFF;
+    padding-top: 60px;
+}
+.serves h2{
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+	font-size: 50px;
+	position: relative;
+	margin-bottom: 20px;
+}
+.serves h2 img{
+	position: absolute;
+	top: 5px;
+}
+.prod_box{
+	width: 1170px;height: 587px;
+	margin: 0 auto;
+}
+.pro_left{
+	width: 390px;
+	height: 512px;
+	float: left;
+}
+.pro_right{
+	float: right;
+}
+.pro_left li,.pro_right li{
+	width: 390px;
+	height: 106px;
+	margin-top: 30px;
+}
+.pro_left li .tex_are{
+	width: 325px;height: 105px;
+	text-align: right;
+	float: left;
+}
+.pro_right li .tex_are{
+	width: 325px;height: 105px;
+	text-align: left;
+	float: right;
+}
+.tex_are h3{
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.tex_are p{
+	font-size: 14px;
+	color: #9b9b9b;
+}
+.pro_left li img{
+	float: right;
+}
+.pro_right li img{
+	float: left;
+}
+.pro_img{
+	width: 330px;height: 587px;
+	padding: 0 30px;float: left;
+}
+.static{
+	width: 100%;height: 730px;
+	position: fixed;left: 0;top: 0;
+	z-index: 0;
+}
+.static img{
+	width: 100%;height: 100%;
+}
+.jieshao{
+	width: 100%;height: 820px;
+	padding: 50px 0;text-align: center;
+	background:#fff;
+}
+.jieshao main h2{
+	 width: 100%;
+    font-size: 50px;
+    font-weight:300;
+}
+.jieshao main p{
+    font-size: 20px;
+    line-height:30px;
+    color: #9b9b9b;
+    margin: 13px 0 0;
+}
+.contentBox{
+	width: 1126px;height: 595px;
+	margin:56px auto 0;
+}
+.contentBox li{
+	width: 541px;height: 270px;float: left;
+	margin-right: 44px;margin-bottom: 50px;
+}
+.contentBox li:nth-child(2n){
+	margin-right: 0;
+}
+.pic_box{
+	width: 50%;height: 100%;
+	float: left;cursor: pointer;position: relative;
+}
+.pic_mask{
+	width: 100%;height: 100%;position: absolute;
+	left: 0;top: 0;background: rgba(0,0,0,0.5);display: none;
+}
+.icon-12{
+	width: 60px;height: 60px;background: #34c1e4;
+	border-radius: 50%;
+	position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;
+	color: #fff;font-size: 30px;
+	text-align: center;line-height: 58px;
+}
+.pic_box:hover .pic_mask{
+	display: block;
+}
+.pic_box img{
+	width: 100%;height: 100%;
+}
+.word_box{
+	width: 216px;height: 205px;
+	padding: 66px 27px 0 27px;
+	background: #fbfbfb;float: left;
+	color: #9B9B9B;text-align: left;
+}
+.word_box h5{
+	font-size: 18px;font-weight: 400;margin-bottom: 30px;
+}
+.contentBox li .word_box p{
+	font-size: 14px;
+}
+.bgimg{
+	width: 100%;height: 432px;
+	background: url(../img/product1-banner.jpg) no-repeat;
+}
+.maskBox{
+	width: 100%;height: 100%;
+	background: rgba(0,0,0,0.3);
+	position: relative;
+}
+.maskBox h2{
+	width: 100%;
+	font-size: 30px;font-weight: 600;text-align: center;color: #fff;
+	padding-top: 100px;margin-bottom: 40px;
+}
+.maskBox p{
+	font-size: 36px;text-align: center;color: #FFFDEF;font-weight: normal;
+}
+.maskBox button{
+	width: 100px;height: 40px;
+	background: #F37B1D;border-radius: 15px;border:none;
+	margin: 0 auto;
+	color: #FFFDEF;text-align: center;line-height: 40px;
+	cursor: pointer;outline: none;
+	position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto;bottom: 60px;
+}
+.maskBox button a{
+    color: #fff;
+}
+/*企业级浏览器内核*/
+.bro_neihe{
+	width: 100%;height: 530px;
+	padding: 100px 0;
+	background: url(../img/pattern-dark.png) repeat;
+}
+.bro_neihe h2{
+	font-size: 50px;font-weight: 300;text-align: center;color: #FFFFFF;margin-bottom: 20px;
+}
+.bro_neihe p{
+	font-size: 20px;line-height: 30px;color: #FFF;text-align: center;
+}
+.bro_four{
+	width: 100%;height: 339px;
+	margin-top: 50px;
+	display: flex;justify-content: space-around;
+}
+.bro_four li{
+	width: 270px;height: 100%;
+	background: #fff;
+	position: relative;text-align: center;
+}
+.bro_four li .iconfont{
+	width: 100px;height: 100px;
+	border-radius: 50%;background: #34C1E4;border: none;
+	position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto;top: -50px;
+	font-size: 50px;color: #FFFDEF;line-height: 96px;
+}
+.bro_four li h4{
+	font-size: 18px;font-weight: 600;margin-top: 80px;margin-bottom: 40px;
+}
+.bro_four li p{
+	font-size: 14px;color: #9B9B9B;
+}
+.bro_four li hr{
+	width: 100px;
+    margin: 45px auto 0;
+    height: 2px;
+    background: #262626;
+}
+

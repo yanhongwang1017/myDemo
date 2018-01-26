@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加用户角色</title>
+    <link href="{STATIC_URL}/layui/css/layui.css" rel="stylesheet">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+</head>
+<style>
+    .layui-container{   margin-top: 20px;   }
+    .layui-container h1{ text-align: center;font-weight: 500;font-size: 26px;margin-bottom: 16px; }
+    .layui-input{   width: 80%;    }
+    .layui-form-label{ width: 120px;text-align: left; }
+</style>
+<body>
+<!--角色名称   发布文章的数量    查看文章的级别（普通  精华   极品）-->
+    <div class="layui-container">
+        <h1>添加用户角色信息</h1>
+        <form class="layui-form" action="index.php?m=admin&f=user&a=addUserRoleData" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色名称：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="rname" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">发布文章的数量：</label>
+                <div class="layui-input-block">
+                    <input type="number" name="connum" min="0" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">查看文章的级别：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="conlevel" value="1" title="普通" checked>
+                    <input type="radio" name="conlevel" value="2" title="精华">
+                    <input type="radio" name="conlevel" value="3" title="极品" >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        layui.use('form', function(){
+            var form = layui.form;
+        });
+    </script>
+</body>
+</html>

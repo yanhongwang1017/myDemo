@@ -1,0 +1,141 @@
+{include file=$header}
+    <link rel="stylesheet" href="{CSS_URL}/setting.css">
+    <script src="{STATIC_URL}/layui/css/layui.css"></script>
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/upload.js"></script>
+    <section class="ibody">
+        <main>
+            <div class="mains">
+                <ul class="aside">
+                    <li>
+                        <div class="setting-icon"><i class="iconfont icon-settings"></i></div>
+                        <span>基础设置</span>
+                    </li>
+                    <li>
+                        <div class="setting-icon"><i class="iconfont icon-gerenziliao"></i></div>
+                        <span>个人资料</span>
+                    </li>
+                    <li>
+                        <div class="setting-icon"><i class="iconfont icon-heimingdan"></i></div>
+                        <span>黑名单</span>
+                    </li>
+                </ul>
+                <div class="rights">
+                    <!--基础设置-->
+                    <div class="setting">
+                        <form action="index.php?m=index&f=content&a=setting" method="post">
+                            <div class="setting_pic">
+                                {if $photo == null}
+                                <img src="{IMG_URL}/avtar.png" alt="">
+                                {else}
+                                <img src="{$data['photo']}" alt="">
+                                {/if}
+                                <button class="btn btn-change" style="float: left;">
+                                    <input type="file" style="opacity: 0;">更改头像
+                                    <input type="hidden" name="photo" value="{$data['photo']}">
+                                </button>
+                                <div class="parents" style="width: 50%;height: 100px;float: left;"></div>
+                            </div>
+                            <div class="setting_nicheng">
+                                <div class="setting-title">昵称</div>
+                                <div class="shuru">
+                                    <input type="text" placeholder="请输入昵称" name="nicheng" value="{$data['nicheng']}">
+                                </div>
+                            </div>
+                            <div class="setting_nicheng">
+                                <div class="setting-title">电子邮箱</div>
+                                <div class="shuru">
+                                    <input type="text" placeholder="请输入你的常用邮箱">
+                                </div>
+                                <button class="btn btn-change send-eamil">发送</button>
+                            </div>
+                            <div class="setting_nicheng">
+                                <div class="setting-title">手机</div>
+                                <div class="btn btn-change send-eamil send-phone">绑定手机</div>
+                            </div>
+                            <input type="submit" value="保存" class="btn btn-save">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script>
+        $(function () {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                $(".send-phone").on("click",function () {
+                    layer.open({
+                        type: 1,
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['420px', '260px'], //宽高
+                        title: ['绑定手机号', 'font-size:18px;'],
+                        content: $('#phone')
+                    });
+                })
+            });
+            let parent = document.querySelector('.parents');
+            let imgval = document.querySelector("input[name='photo']");
+            let selectBtn = document.querySelector("input[type=file]");
+            let obj = new upload();
+            obj.upBtnStyle = "display: inline-block;height: 38px;line-height: 38px;padding: 0 18px;\n" +
+                "    background-color: #FF5722;color: #fff;white-space: nowrap;text-align: center;\n" +
+                "    font-size: 14px;border: none;border-radius: 2px;cursor: pointer;margin-left:74px;float:left;";
+            obj.multiple = false;
+            obj.viewStyle = "width:32%;margin-left:73px;margin-top:10px;float:left;";
+            obj.createView({
+                parent:parent,selectBtn:selectBtn
+            })
+            obj.up("index.php?m=admin&f=index&a=upload",function (e) {
+                let str = e.join(";");
+                imgval.value = str;
+            });
+        })
+    </script>
+</body>
+    <div id="phone" style="display: none">
+        <form action="index.php?m=index&f=index&a=addPhone" method="post">
+            <div class="input-prepend">
+                <div class="overseas">
+                    <input type="text" name="phone" placeholder="手机号" class="phone-input">
+                    <a aria-expanded="false" class="overseas-number">
+                        <i class="glyphicon glyphicon-phone"></i>
+                        <span>+86</span>
+                    </a>
+                </div>
+                <div class="input-prepend">
+                    <input type="text" placeholder="短信验证码" class="code" name="code">
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <a class="btn-in-resend">发送验证码</a>
+                </div>
+                <input type="submit" class="sign-in-button">
+            </div>
+        </form>
+    </div>
+    <script>
+        $(".btn-in-resend").click(function () {
+            var phoneNum = $(".phone-input").val();
+            var that = $(this);
+            var time = 60;
+            $.ajax({
+                url:"index.php?m=admin&f=login&a=sendCode",
+                data:{  phoneNum},
+                type:"post",
+                success:function (e) {
+                    if (e) {
+                        let t = setInterval(function () {
+                            time--;
+                            that.html("重新发送(" + time + ")").attr({  disabled: "disabled"});
+                            if (time == 0) {
+                                time = 60;
+                                $(that).html("发送验证码").removeAttr("disabled");
+                                clearInterval(t);
+                            }
+                        }, 1000)
+                    }
+                }
+            })
+        })
+    </script>
+</html>

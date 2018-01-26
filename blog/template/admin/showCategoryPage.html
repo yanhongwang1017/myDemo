@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>查看分类</title>
+    <link rel="stylesheet" type="text/css" href="{CSS_URL}/easyui.css">
+    <link rel="stylesheet" type="text/css" href="{CSS_URL}/icon.css">
+    <script type="text/javascript" src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{JS_URL}/jquery.easyui.min.js"></script>
+</head>
+<style>
+    .panel-htop{
+        margin: 0 auto;
+    }
+</style>
+<body>
+<div style="margin:20px auto;width: 300px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="edit()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="cancel()">取消</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="delte()">删除</a>
+</div>
+<table id="tg" class="easyui-treegrid" title="分类列表" style="width:700px;height:250px"
+       data-options="
+				iconCls: 'icon-ok',
+				rownumbers: true,
+				animate: true,
+				collapsible: true,
+				fitColumns: true,
+				url: 'index.php?m=admin&f=category&a=showCategoryDate',
+				method: 'post',
+				idField: 'id',
+				treeField: 'cname',
+				showFooter: true
+			">
+    <thead>
+    <tr>
+        <th data-options="field:'cname',width:180,align:'left',editor:'text'">分类名称</th>
+        <th data-options="field:'cinfo',width:180,align:'left',editor:'text'">分类信息</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/javascript">
+    var editingId;
+    function edit(){
+        if (editingId != undefined){
+            $('#tg').treegrid('select', editingId);
+            return;
+        }
+        var row = $('#tg').treegrid('getSelected');
+        if (row){
+            editingId = row.id
+            $('#tg').treegrid('beginEdit', editingId);
+        }
+    }
+
+    $('#tg').treegrid({
+    "onAfterEdit":function (a,b) {
+        let obj = {};
+        obj.cid = editingId;
+        for(let i in b){
+            obj.field = i;
+            obj.val = b[i];
+        }
+        $.ajax({
+            url:"index.php?m=admin&f=category&a=editCategory",
+            data:obj,
+            type:"post",
+            success:function (e) {
+                if (e == "ok"){
+                    alert("更新成功");
+                    location.href = "index.php?m=admin&f=category&a=showCategoryPage";
+                }else {
+                    alert("没有更新");
+                    location.href = "index.php?m=admin&f=category&a=showCategoryPage";
+                }
+            }
+        })
+        editingId = undefined;
+    }})
+    var t = $('#tg');
+    function save(){
+        if (editingId != undefined){
+
+            t.treegrid('endEdit', editingId);
+            editingId = undefined;
+        }
+    }
+    function cancel(){
+        if (editingId != undefined){
+            $('#tg').treegrid('cancelEdit', editingId);
+            editingId = undefined;
+        }
+    }
+    function delte() {
+        var row = $('#tg').treegrid('getSelected');
+        if (row){
+            editingId = row.id;
+        }
+        if (editingId != undefined){
+            $.ajax({
+                url:"index.php?m=admin&f=category&a=delCategory",
+                data:{ cid:editingId },
+                type:"post",
+                success:function (e) {
+                    if (e == "ok"){
+                        $('#tg').treegrid('remove', editingId);
+                        editingId = undefined;
+                        location.href = "index.php?m=admin&f=category&a=showCategoryPage";
+                    }
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>

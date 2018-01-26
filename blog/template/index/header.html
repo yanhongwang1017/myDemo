@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知书</title>
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+    <link rel="stylesheet" href="{CSS_URL}/base.css">
+    <link rel="stylesheet" href="{STATIC_URL}/iconfont/iconfont.css">
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script src="{JS_URL}/base.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header_main">
+            <div class="title_word"><a href="index.php?m=index&f=index">心灵驿站</a></div>
+            <main>
+                <ul class="navi">
+                    <li>
+                        <div class="iconfont icon-zhinanzhen"></div>
+                        <span>
+                            {if $logins == null}
+                                <a href="index.php?m=index&f=login">发现</a>
+                            {else}
+                                <a href="index.php?m=index&f=index">发现</a>
+                            {/if}
+                        </span>
+                    </li>
+                    <li>
+                        <div class="iconfont icon-shu"></div>
+                        <span>
+                            {if $logins == null}
+                                <a href="index.php?m=index&f=login">关注</a>
+                            {else}
+                                <a href="javascript:void (0);">关注</a>
+                            {/if}
+                        </span>
+                    </li>
+                    <li>
+                        <div class="iconfont icon-ptlingsheng"></div>
+                        <span>
+                            {if $logins == null}
+                                <a href="index.php?m=index&f=login">消息</a>
+                        </span>
+                            {else}
+                                <a href="index.php?m=index&f=index&a=messages">消息</a></span>
+                            {/if}
+                    </li>
+                    <li class="search">
+                        <form action="">
+                            <input type="text" placeholder="搜索">
+                        </form>
+                        <div class="glyphicon glyphicon-search"></div>
+                    </li>
+                </ul>
+            </main>
+            <div class="header_right">
+                <div class="logins">
+                    {if $logins == null}
+                        <a href="index.php?m=index&f=login" class="login_reg">登陆 • 注册</a>
+                    {else}
+                        {if $photo==null}
+                            <div class="person_photo"><img src="{IMG_URL}/avtar.png" alt=""></div>
+                        {else}
+                            <div class="person_photo"><img src="{$photo}" alt=""></div>
+                        {/if}
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                        <dl class="hid_box hidden_box" style="display: none;">
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=homepage">
+                                    <div class="iconfont icon-zhanghu"></div>
+                                    <p>我的主页</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=collection&kind=collec">
+                                    <div class="iconfont icon-shoucang"></div>
+                                    <p>收藏的文章</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=like">
+                                    <div class="iconfont icon-xihuan1"></div>
+                                    <p>喜欢的文章</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=car">
+                                    <div class="iconfont icon-gouwuche"></div>
+                                    <p>我的购物车</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=wallet">
+                                    <div class="iconfont icon-qianbao"></div>
+                                    <p>我的钱包</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=index&a=setting">
+                                    <div class="iconfont icon-shezhi"></div>
+                                    <p>设置</p>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="index.php?m=index&f=login&a=loginOut">
+                                    <div class="iconfont icon-tuichu1"></div>
+                                    <p>退出</p>
+                                </a>
+                            </dt>
+                        </dl>
+                    {/if}
+                </div>
+                <div class="write">
+                    {if $logins == null}
+                        <a href="index.php?m=index&f=login">写文章</a>
+                    {else}
+                        <a href="index.php?m=index&f=index&a=write">写文章</a>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </header>

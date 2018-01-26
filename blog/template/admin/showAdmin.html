@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询管理员</title>
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+</head>
+<style>
+    .table-responsive{
+        width: 90%;  margin: 0 auto;
+    }
+    caption h2{
+        text-align: center;  color: #0e0e0e;
+    }
+    th,td{
+        text-align: center;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th{
+        vertical-align: middle;font-size: 18px;
+    }
+</style>
+<body>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption><h2>管理员信息列表</h2></caption>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            {foreach $result as $value}
+                <tr>
+                    <td>{$value["aid"]}</td>
+                    <td>{$value["aname"]}</td>
+                    <td>{$value["lname"]}</td>
+                    <td>
+                        <a href="index.php?m=admin&f=member&a=editAdmin&aid={$value['aid']}" class="btn btn-warning">编辑</a>
+                        <button attr="{$value['aid']}" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+            {/foreach}
+        </table>
+    </div>
+    <script>
+        $(function () {
+            layui.use('layer',function () {
+                var layer = layui.layer;
+                $(".btn-danger").on("click",function () {
+                    let that = $(this);
+                    let aid = that.attr("attr");
+                    layer.confirm('确定删除一位管理员吗？', {
+                        btn: ['确定','取消']
+                    }, function(){
+                        $.ajax({
+                            url:"index.php?m=admin&f=member&a=delAdmin&aid="+aid,
+                            success:function (e) {
+                                if (e == "ok"){
+                                    that.parent().parent().remove();
+                                    layer.msg('删除成功');
+                                }
+                            }
+                        })
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看留言</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+    caption{    font-size: 22px;text-align: center;margin-bottom: 10px;}
+    .layui-table tr th,table tr,td{    text-align: center;}
+    table tr td a{  color: #0d5fd9;}
+</style>
+<body>
+    <div class="layui-container">
+        <table class="layui-table">
+            <caption>留言查看</caption>
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>留言者</th>
+                <th>留言内容标题</th>
+                <th>留言内容</th>
+                <th>属性</th>
+                <th>时间</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $data as $value}
+            <tr>
+                <td>{$value["mid"]}</td>
+                <td>{$value["nicheng"]}</td>
+                <td><a href="index.php?m=admin&f=content&a=showContent&cid={$value['conid']}">{$value["ctitle"]}</a></td>
+                <td>{$value["mcon"]}</td>
+                <td>
+                    {if $value["state"] == 0}
+                    留言
+                    {else}
+                    回复
+                    {/if}
+                </td>
+                <td>{$value["mdate"]}</td>
+                <td><button attr="{$value['mid']}" class="layui-btn layui-btn-danger">删除</button></td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+        {$pages}
+    </div>
+    <script>
+        $(function () {
+            layui.use('layer',function () {
+                var layer = layui.layer;
+                $(".layui-btn-danger").on("click",function () {
+                    let that = $(this);
+                    let mid = that.attr("attr");
+                    layer.confirm('确定删除该条留言吗？', {
+                        btn: ['确定','取消']
+                    }, function(){
+                        $.ajax({
+                            url:"index.php?m=admin&f=message&a=delMessage&mid="+mid,
+                            success:function (e) {
+                                if (e == "ok"){
+                                    that.parent().parent().remove();
+                                    layer.msg('删除成功');
+                                }else if(e == "no"){
+                                    layer.msg('删除失败');
+                                }
+                            }
+                        })
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示信息</title>
+</head>
+<style>
+    .navi li .iconfont{  color: #333;  }
+    .navi li:first-child a{  color: #333;  }
+    h1{  text-align: center;font-weight: 500;font-size: 50px;margin-top: 100px;}
+    .container{  background:#fff;width: 500px;height: 200px;border:1px solid #1a1a1a;position: absolute;left:0;right:0;top:0;bottom:0;margin:auto;padding: 0;  }
+    .title{  width: 100%;height: 50px;background: #009ad4;font-size: 24px;text-align: center;line-height: 50px;color:#000;  }
+    .text{  position: absolute;left:0;right:0;top:0;bottom:0;margin:auto;width: 300px;height:40px;font-size: 18px;text-align: center;line-height: 40px;  }
+</style>
+<body>
+    <h1></h1>
+    <div class="container">
+        <div class="title">{$message}</div>
+        <div class="text">
+            页面将在<span>3</span>秒钟后跳转。若没有跳转，请点击<a href="{$url}">这里</a>跳转
+        </div>
+    </div>
+    <script>
+        let time = 3;
+        setInterval(function () {
+            time--;
+            if(time < 0){
+                location.href = "{$url}";
+            }else{
+                document.querySelector('span').innerHTML = time;
+            }
+        },1000);
+        let i = 0;
+        let str ="PersonalBlog";
+        let t = setInterval(typing,200);
+        function typing(){
+            let h1 = document.querySelector("h1");
+            h1.innerHTML += str.charAt(i);
+            i++;
+            if(i == str.length){
+                clearInterval(t);
+            }
+        }
+    </script>
+</body>
+</html>

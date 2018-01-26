@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{CSS_URL}/bootstrap.min.css">
+    <link href="{CSS_URL}/indexLogin.css" rel='stylesheet' type='text/css' />
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+    <script src="{JS_URL}/jquery.validate.min.js"></script>
+    <script src="{JS_URL}/indexLogin.js"></script>
+</head>
+<body>
+    <div class="tittle"><a href="index.php?m=index&f=index">心灵驿站</a></div>
+    <div class="login-form" style="height: 441px;">
+        <div class="title">
+            <button class="btn btn-default"><a href="javascript:void (0);" class="denglu">登录</a></button>
+            <button class="btn btn-default btn-primary" onclick="location.href = 'index.php?m=index&f=login&a=showRegist'"><a href="index.php?m=index&f=login&a=showRegist" class="denglu" style="color: #fff">注册</a></button>
+        </div>
+        <div class="login">
+            <div class="avtar">
+                <img src="{IMG_URL}/avtar.png" style="width: 79px;height: 79px;border-radius: 50%;">
+            </div>
+            <form class="logins" action="index.php?m=index&f=login&a=loginCheck" method="post">
+                <div class="key">
+                    账户：<input type="text" name="username" id="username" autocomplete="off" class="showPhoto">
+                    <div class="error_box">
+                        <label id="username-error" class="error" for="username"></label>
+                    </div>
+                </div>
+                <div class="key">
+                    密码：<input type="password" name="password" id="password">
+                    <div class="error_box">
+                        <label id="password-error" class="error" for="password"></label>
+                    </div>
+                </div>
+                <div class="code">
+                    验证码：<input type="text" name="code" autocomplete="off">
+                    <div class="code_box">
+                        <img src="index.php?m=index&f=login&a=imagecode" alt="">
+                    </div>
+                </div>
+                <div class="signin">
+                    <input type="submit" value="登陆" >
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

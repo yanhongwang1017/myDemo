@@ -1,0 +1,96 @@
+.navi li a{
+    color: #000;
+}
+.navi li:nth-last-child(4) a{
+    color: #000;
+}
+nav{
+    padding-top: 42px;
+    height: 116px;
+}
+.left_logo{
+    height: 50px;
+}
+.navi{
+    margin-bottom: 0;
+    height: 74px;
+    line-height: 74px;
+}
+.navi li:hover a{
+    color: #7C6AA6;
+    text-decoration: none;
+}
+.picture{
+    width: 100%;height: 220px;
+    background: #fff;
+    padding:50px 0;
+}
+.pic_main{
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: space-around;
+}
+.pic_main li{
+    width: 200px;height: 100%;
+    text-align: center;
+}
+.pic_main li h3{
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight:300;
+}
+.box{
+    width: 93%;height: auto;
+    background: #fff;
+    padding:50px;
+}
+.word{
+    width: 800px;height: 70px;
+    margin: 0 auto;
+}
+.word p{
+    font-size: 16px;
+    color: #666;
+    text-align: left;
+}
+.content{
+    background: #fff;
+    padding-bottom: 50px;
+}
+p{
+    margin-bottom: 20px;
+}
+.left_con{
+    width: 900px;
+    margin: 0 auto;
+}
+.con-text img{
+    margin: 30px auto;
+}
+.message{
+    width: 100%;
+    height: 350px;
+    background: #fff;
+}
+form{
+    width: 600px;
+    height: auto;
+    float: right;
+    margin-right: 50px;
+}
+.form-control{
+    width: 80%;
+}
+textarea.form-control{
+    width: 80%;
+    height: 100px;
+    resize: none;
+}
+.message_area{
+    width: 450px;
+    height: 200px;
+    float: left;
+    padding-top: 30px;
+    margin-left: 50px;
+}

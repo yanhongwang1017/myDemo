@@ -1,0 +1,68 @@
+nav{
+    padding-top: 42px;
+}
+.navi li:nth-last-child(4) a{
+    color: #7c6aa6;
+}
+.navi li:hover a{
+    color: #7C6AA6;
+}
+.container{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+    padding: 100px 0;
+}
+.content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.content li{
+    float: left;
+    width: 50%;
+    height: 200px;
+    border: 1px solid #1a1a1a;
+    font-size: 30px;
+    text-align: center;
+    line-height:200px;
+    font-weight: 500;
+    background-size: 100% 100%;
+}
+.content li a{
+    display: block;
+    width: 100%;height: 100%;
+    color: #000000;
+}
+.banner{
+    width: 100%;height: auto;
+    position: relative;
+}
+.banner img{
+    width: 100%;
+    height:100%;
+}
+.msdk{
+    width: 759px;height: 182px;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top:0;bottom: 0;margin-top: auto;margin-bottom: auto;
+    left: 0;
+}
+.msdk h2{
+    font-size: 32px;color: #fff;
+    font-weight: 300;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+.msdk p{
+    font-size: 22px;
+    color: #fff;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 10px;
+    font-weight:300;
+}

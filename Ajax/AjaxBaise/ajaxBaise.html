@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本的Ajax理解</title>
+    <style>
+        .box{
+            width: 500px;height:500px;
+            border:1px solid #000000;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+    <button>获取</button>
+    <div class="box"></div>
+    <script>
+        document.querySelector("button").onclick = function () {
+            let obj = new XMLHttpRequest();
+            obj.onreadystatechange = function () {
+                if (obj.readyState == 4){
+                    if (obj.status == 200){
+                        document.querySelector("div").innerHTML = obj.response;
+                    }
+                }
+            }
+            obj.open("get","data.php?name=zhangsan");
+            obj.send();
+        }
+    </script>
+</body>
+</html>

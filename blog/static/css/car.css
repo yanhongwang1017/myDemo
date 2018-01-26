@@ -1,0 +1,92 @@
+.navi li .iconfont{
+    color: #333;
+}
+.navi li:first-child a{
+    color: #333;
+}
+table{
+    margin-top: 20px;
+    background: #f8f8f8;
+}
+.shangpin_img{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.shangpin_img img{
+    width: 100%;
+    height:100%;
+}
+table tr th{
+    font-weight: 600;
+}
+.ibody main table tr td{
+    vertical-align: middle;
+}
+.number{
+    border:none;
+    outline: none;
+    display: block;
+}
+.glyphicon-remove{
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.glyphicon-remove:hover{
+    transform: rotate(180deg);
+    color: #f81900;
+}
+.shangpin_name{
+    font-size: 20px;
+    font-weight: 500;
+}
+.amount{
+    width: 100%;height: 50px;
+    background: #f8f8f8;
+    margin-top: 20px;
+}
+.section-left{
+    float: left;
+    text-align: right;
+}
+.back-shopping{
+    line-height: 50px;
+    margin-left: 32px;
+    color: #757575;
+}
+.cart-total{
+    margin-left: 16px;
+    padding-left: 16px;
+    border-left: 1px solid #eee;
+    color: #757575;
+}
+#sp_num,#sel_num{
+    font-style: normal;
+    color: #EA6F5A;
+}
+.total-price{
+    padding-left: 13px;
+    color: #EA6F5A;
+    text-align: right;
+}
+.total-price{
+    float: right;
+    line-height: 50px;
+    font-size: 20px;
+}
+#cartTotalPrice{
+    font-style: normal;
+}
+.jiesuan{
+    width: 200px;
+    height: 48px;
+    line-height: 36px;
+    font-size: 18px;
+    margin-left: 50px;
+    vertical-align: top;
+    float: right;
+    border-radius: 0;
+    background: #EA6F5A;
+    border-color: #EA6F5A;
+}

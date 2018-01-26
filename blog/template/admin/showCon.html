@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看内容</title>
+    <link rel="stylesheet" href="{STATIC_URL}/layui/css/layui.css">
+    <script src="{STATIC_URL}/layui/layui.js"></script>
+    <script src="{JS_URL}/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+    caption{  font-size: 26px;text-align: center;margin-bottom: 16px;  }
+    .layui-table th,table td{  text-align: center;  }
+    table td a{ color: #1d69cc;}
+    table td a:hover{ text-decoration: underline;color: #0e0e0e;}
+    .layui-table th{    font-weight: bolder; }
+    #pages{  margin:20px auto 0;  }
+    .select{   position: relative;cursor: pointer;}
+    .hide_list{ position: absolute;left: 0;top: 0px;width: 100%;height: auto;background: #fff;z-index: 10;display: none;}
+    .hide_list li{  width: 100%;height: 26px;}
+    .hide_list li a{    color: #1d69cc;}
+    .hide_list li a:hover{  text-decoration: underline;color: #0e0e0e;}
+</style>
+<body>
+    <div class="layui-container">
+        <table class="layui-table lay-even">
+            <caption>内容详细信息</caption>
+            <colgroup>
+                <col width="150">
+                <col width="200">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>标题</th>
+                <th>作者</th>
+                <th class="select">
+                    状态
+                    <ul class="hide_list">
+                        <li><a href="index.php?m=admin&f=content&a=showCon&state=1">保存</a></li>
+                        <li><a href="index.php?m=admin&f=content&a=showCon&state=2">审核</a></li>
+                        <li><a href="index.php?m=admin&f=content&a=showCon&state=3">发布</a></li>
+                        <li><a href="index.php?m=admin&f=content&a=showCon&state=4">禁用</a></li>
+                    </ul>
+                </th>
+                <th class="select">
+                    属性
+                    <ul class="hide_list">
+                        <li><a href="index.php?m=admin&f=content&a=showCon&cquanxian=1">普通文章</a></li>
+                        <li><a href="index.php?m=admin&f=content&a=showCon&cquanxian=2">精华文章</a></li>
+                        <li><a href="index.php?m=admin&f=content&a=showCon&cquanxian=3">极品好文章</a></li>
+                    </ul>
+                </th>
+                <th>发布时间</th>
+                <th>缩略图</th>
+                <th>价格</th>
+                <th>所属分类</th>
+                <th>推荐位</th>
+            </tr>
+            </thead>
+            <tbody>
+                {foreach $data as $val}
+                <tr>
+                    <td>{$val["cid"]}</td>
+                    <td><a href="index.php?m=admin&f=content&a=showContent&cid={$val['cid']}">{$val["ctitle"]}</a></td>
+                    <td>{$val["uname"]}</td>
+                    <td>
+                        {if $val["state"]==1}
+                            保存
+                        {elseif $val["state"]==2}
+                            审核
+                        {elseif $val["state"]==3}
+                            发布
+                        {else}
+                            禁用
+                        {/if}
+                    </td>
+                    <td>
+                        {if $val["cquanxian"]==1}
+                            普通文章
+                        {elseif $val["cquanxian"]==2}
+                            精华文章
+                        {else}
+                            极品好文章
+                        {/if}
+                    </td>
+                    <td>{$val["condate"]}</td>
+                    <td><img src="{$val['thumb']}" alt="" width="70"></td>
+                    <td>{$val["price"]}</td>
+                    <td>{$val["cname"]}</td>
+                    <td>{$val["pname"]}</td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+        <div id="pages">{$pages}</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".select").hover(
+                function () {
+                    $(this).children(".hide_list").finish().slideDown(500);
+                },function () {
+                    $(this).children(".hide_list").finish().slideUp(500);
+                }
+            )
+        })
+    </script>
+</body>
+</html>
